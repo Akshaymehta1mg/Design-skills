@@ -1,15 +1,15 @@
 ---
 name: research-script
-description: Use this subskill to create an interview, concept test, or usability test script from the board and problem articulation.
+description: Write an interview, concept test, or usability test script based on the board and problem articulation.
 ---
 
 # Research Script
 
-## Purpose
+## What this step is for
 
-Use this subskill to create an interview, concept test, or usability test script from the board and problem articulation.
+You've decided what to research. Now write the actual script — the questions you'll ask, the tasks you'll give participants, and the moderator notes that keep the session on track. A good script feels like a natural conversation, not an interrogation.
 
-## Output Format
+## What the output looks like
 
 ```markdown
 # Research Script
@@ -44,14 +44,14 @@ Use this subskill to create an interview, concept test, or usability test script
 1. ...
 2. ...
 
-## Notes For Moderator
+## Notes for Moderator
 - ...
 ```
 
-## Rules
+## Ground rules
 
-- Avoid leading questions.
-- Ask about behavior before opinions.
-- Keep tasks realistic.
-- Do not explain the UI before asking the participant to use it.
-- Ask "what would you do next?" when testing flow clarity.
+- Don't lead the witness. Ask open questions that don't hint at the "right" answer.
+- Ask about behavior before opinions. "What did you do last time?" comes before "What do you think about this?"
+- Keep tasks realistic. Frame them the way the user would actually encounter them, not how the product team thinks about them.
+- Don't explain the UI before asking someone to use it. That defeats the purpose.
+- When testing flow clarity, "What would you do next?" is your best friend.

@@ -1,74 +1,67 @@
 ---
 name: articulate-problem
-description: Use this subskill after reading the board and before proposing UX solutions to transform observed screens, flows, and notes into a clear design problem.
+description: Use this after reading what the designer shared and before proposing solutions. Turns messy context into a clear design problem.
 ---
 
-# Articulate Problem
+# Articulate the Problem
 
-## Purpose
+## What this step is for
 
-Use this subskill after reading the board and before proposing UX solutions. It transforms observed screens, flows, and notes into a clear design problem.
+This is the step where you stop and name what's actually going on. Before you propose anything, figure out who's struggling, why, and what "fixed" looks like. If you skip this, everything downstream is a guess.
 
-## Process
+## How to think through it
 
-1. Identify the user:
-   - Primary user type
-   - Experience level
-   - Intent
-   - Emotional state
-   - Constraints
+1. **Who's the user?**
+   - What kind of person are they?
+   - How experienced are they with this product?
+   - What are they trying to do right now?
+   - What's their emotional state? (Anxious? Rushed? Confused? Confident?)
+   - What constraints are they working under?
 
-2. Identify the job:
-   - What the user is trying to accomplish
-   - What progress means to them
-   - What blocks progress
+2. **What's the job they're trying to get done?**
+   - What does "progress" mean to them?
+   - What's blocking that progress right now?
 
-3. Identify the product goal:
-   - Activation
-   - Conversion
-   - Retention
-   - Trust
-   - Comprehension
-   - Collaboration
-   - Efficiency
-   - Error recovery
+3. **What's the product trying to achieve?**
+   - Is this about activation, conversion, retention, trust, comprehension, collaboration, efficiency, or error recovery?
+   - Pick one primary goal. "All of them" is not an answer.
 
-4. Identify the current friction:
-   - Unclear next step
-   - Too many choices
-   - Missing feedback
-   - Poor information hierarchy
-   - Broken flow logic
-   - Weak motivation
-   - Trust gap
-   - Accessibility issue
-   - Copy mismatch
+4. **Where exactly does it break down?**
+   - Is the next step unclear?
+   - Are there too many choices?
+   - Is feedback missing?
+   - Is the information hierarchy wrong?
+   - Is the flow logic broken?
+   - Is motivation weak?
+   - Is there a trust gap?
+   - Is it an accessibility issue?
+   - Does the copy say the wrong thing?
 
-5. Frame the problem:
-   - User problem
-   - Product problem
-   - Design challenge
-   - Success criteria
+5. **Frame the design challenge:**
+   - What's the user's problem?
+   - What's the product's problem?
+   - What's the design challenge that connects them?
+   - How will we know it's working?
 
-## Reframe check (required)
+## Reframe check (do this every time)
 
-Before ending this step, state the problem in three forms. This takes a minute and stops the whole design pass from being answered against a shallow problem statement.
+Before you move on, state the problem in three forms. This takes a minute and it stops the entire solution from being built on a shallow problem statement.
 
-**Form 1 — PM framing.** The problem as stated upstream (from PM, research brief, or ticket). Take this as given — research validated it. Do not relitigate whether it is the right problem.
+**Form 1 — How the PM framed it.** The problem as stated in the brief, ticket, or research doc. Take this as given — research validated it. Your job isn't to relitigate whether it's the right problem.
 
-**Form 2 — User-symptom restatement.** The same problem in user language. Usually starts *"Users can't…"* or *"Users get confused when…"*. This is true but not useful — it names the pain without naming what to change.
+**Form 2 — How the user would say it.** The same problem in the user's own words. Usually starts with "I can't..." or "I get confused when..." This is true but not useful on its own — it names the pain without pointing to what to change.
 
-**Form 3 — Design-shaped articulation.** The same problem restated in a way that names the specific mismatch the design must resolve. Shape: *"the interface is treating X like Y, when the user is doing Z"* or *"the surface asks A, but the user's real task is B"*. Everything downstream — solution direction, stance choice, artifact — should be answerable from Form 3, not Form 1.
+**Form 3 — The design-shaped version.** The same problem restated so it names the specific mismatch the design needs to fix. The shape is usually: *"the interface is treating X like Y, when the user is actually doing Z"* or *"the surface asks A, but the user's real task is B."* Everything downstream — your solution, your stance, your artifact — should answer Form 3, not Form 1.
 
-**Self-check.** If Form 3 is Form 1 with the noun changed, you have not reframed. Look for the mismatch between what the interface offers and what the user is actually trying to do. That mismatch is the design lever.
+**Quick self-check:** If Form 3 is just Form 1 with different words, you haven't reframed. Look for the gap between what the interface offers and what the user is actually trying to do. That gap is where the design lever is.
 
 **Example — diagnostics search:**
 
 - Form 1: *"Users can't book the right diagnostic test on the SRP."*
-- Form 2: *"Users are confused by too many similar-looking results."*
-- Form 3: *"The SRP is built as a shopping surface, but doctor-initiated users are doing a translation task from prescription shorthand to app SKU. The design must bridge that gap — not filter or rank."*
+- Form 2: *"I see seven tests that all look the same and I don't know which one my doctor meant."*
+- Form 3: *"The SRP is built as a shopping surface, but doctor-initiated users are doing a translation task — matching prescription shorthand to an app SKU. The design must bridge that gap, not filter or rank."*
 
-## Output Format
+## What the output looks like
 
 ```markdown
 ## Problem Articulation
@@ -76,28 +69,28 @@ Before ending this step, state the problem in three forms. This takes a minute a
 **User**
 ...
 
-**User goal**
+**What they're trying to do**
 ...
 
-**Current friction**
+**Where it breaks down**
 ...
 
-**Product goal**
+**What the product needs**
 ...
 
-**Design challenge**
+**The design challenge**
 How might we ...
 
-**Success looks like**
+**What success looks like**
 ...
 
-**Assumptions**
+**What we're assuming**
 ...
 ```
 
-## Rules
+## Ground rules
 
-- Frame the problem before the solution.
-- Keep the problem human and specific.
-- Avoid generic UX language unless it is tied to visible evidence.
-- Use "How might we..." only after the problem is clear.
+- Name the problem before you touch the solution. Always.
+- Keep it human and specific. "Users experience friction" is not a problem statement.
+- Don't use generic UX jargon unless you can tie it to something visible in the work.
+- Save "How might we..." for after the problem is clear. It's a framing tool, not a starting point.

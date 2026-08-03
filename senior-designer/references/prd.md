@@ -1,24 +1,24 @@
 ---
 name: prd
-description: Use this subskill to turn board context and UX recommendations into a product requirements document.
+description: Turn board context and UX recommendations into a product requirements document that engineering and product can build from.
 ---
 
 # PRD
 
-## Purpose
+## What this step is for
 
-Use this subskill to turn board context and UX recommendations into a product requirements document.
+This is where design thinking becomes a buildable spec. You've articulated the problem, you have a UX direction — now turn it into a document that product and engineering can actually use. A good PRD is specific enough to build from and clear enough that someone who wasn't in the room understands what's being built and why.
 
-## Required Inputs
+## What you need before you start
 
-- Problem articulation.
-- Recommended UX direction.
-- User type.
-- Product goal.
-- Screens or flow involved.
-- Constraints and assumptions.
+- A clear problem articulation.
+- A recommended UX direction.
+- Who the user is.
+- What the product goal is.
+- Which screens or flows are involved.
+- Known constraints and assumptions.
 
-## Output Format
+## What the output looks like
 
 ```markdown
 # Product Requirements Document
@@ -53,14 +53,14 @@ Use this subskill to turn board context and UX recommendations into a product re
 ## Content Requirements
 - ...
 
-## States And Edge Cases
+## States and Edge Cases
 - Loading:
 - Empty:
 - Error:
 - Permission:
 - Success:
 
-## Analytics And Success Metrics
+## Analytics and Success Metrics
 - ...
 
 ## Dependencies
@@ -73,9 +73,9 @@ Use this subskill to turn board context and UX recommendations into a product re
 - ...
 ```
 
-## Rules
+## Ground rules
 
-- Keep requirements testable.
-- Separate goals from non-goals.
-- Include edge states.
-- Do not write vague requirements like "make it intuitive"; specify the behavior.
+- Keep requirements testable. If you can't tell whether it shipped correctly, the requirement isn't specific enough.
+- Separate goals from non-goals. Saying what you're *not* doing is just as important as saying what you are.
+- Include edge states. The happy path is the easy part — the edge cases are where things break.
+- Don't write vague requirements like "make it intuitive." Describe the actual behavior you expect.

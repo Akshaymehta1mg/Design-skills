@@ -1,27 +1,27 @@
 ---
 name: sticky-notes
-description: Use this subskill when the final output should be placed on a FigJam or Figma board as sticky notes, comments, labels, or grouped annotations.
+description: Create sticky notes, comments, labels, or grouped annotations to place on a FigJam or Figma board.
 ---
 
 # Sticky Notes
 
-## Purpose
+## What this step is for
 
-Use this subskill when the final output should be placed on a FigJam/Figma board as sticky notes, comments, labels, or grouped annotations.
+Sometimes the best output isn't a document — it's notes on the board. Sticky notes are how designers think out loud, leave breadcrumbs for the team, and organize messy thinking into something actionable. This step is for when the final output should live on the FigJam or Figma board itself.
 
-## Note Types
+## Types of notes
 
-Use these groups:
+Organize stickies into these groups:
 
-- Problem
-- Insight
-- Opportunity
-- Recommendation
-- Risk
-- Question
-- Next Step
+- **Problem** — what's broken or not working
+- **Insight** — what you've learned or observed
+- **Opportunity** — where there's room to improve
+- **Recommendation** — what you'd do about it
+- **Risk** — what could go wrong
+- **Question** — what's still unclear
+- **Next Step** — what should happen after this
 
-## Output Format
+## What the output looks like
 
 ```markdown
 # Sticky Notes
@@ -47,19 +47,19 @@ Use these groups:
   Body: ...
 ```
 
-## Writing Rules
+## Writing stickies well
 
-- One idea per sticky.
-- Keep titles short.
-- Keep body text under 35 words when possible.
-- Use concrete language.
-- Preserve important user wording.
-- Mark assumptions clearly.
+- One idea per sticky. If it needs an "and," it's probably two stickies.
+- Keep titles short — they should be scannable from across the board.
+- Keep body text under 35 words when you can. If you need more, it might belong in a doc, not a sticky.
+- Use concrete language. "Users struggle with checkout" is better than "Friction exists in the conversion funnel."
+- Preserve important wording from the user or the research — don't paraphrase away the specificity.
+- Mark assumptions clearly so no one mistakes them for facts.
 
-## Board Placement Guidance
+## Where to put them on the board
 
-- Place problem notes near the relevant screen or flow start.
-- Place recommendations near the screen they affect.
-- Place risks near decision points.
-- Place questions in a separate group if they are not tied to one screen.
-- Place next steps at the end of the flow.
+- Problem notes go near the relevant screen or the start of the flow.
+- Recommendations go near the screen they affect.
+- Risks go near decision points.
+- Questions get their own group if they're not tied to a specific screen.
+- Next steps go at the end of the flow.

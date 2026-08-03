@@ -1,64 +1,64 @@
 ---
 name: clarify-context
-description: Use this subskill to decide whether to ask the user targeted questions or proceed with stated assumptions.
+description: Decide whether you need to ask the designer a few questions or can move forward with reasonable assumptions.
 ---
 
 # Clarify Context
 
-## Purpose
+## What this step is for
 
-Use this subskill to decide whether to ask the user questions or proceed with assumptions.
+Before you dive in, figure out whether you actually have enough to work with. Sometimes the board and prompt give you everything you need. Sometimes there's a gap that would send you in the wrong direction. This step helps you tell the difference.
 
-## Confidence Test
+## The confidence check
 
-Ask these internally:
+Run through these questions in your head:
 
 - Do I know who the user is?
-- Do I know what outcome the user wants?
-- Do I know what the product wants?
-- Do I know what artifact the user requested?
+- Do I know what outcome the designer wants?
+- Do I know what the product is trying to achieve?
+- Do I know what artifact they're expecting?
 - Do I know whether I should critique, redesign, document, or build?
-- Would missing information change the recommendation?
+- Would missing information change my recommendation?
 
-## Decision
+## How to decide
 
-### Proceed Without Questions
+### Go ahead without questions
 
-Proceed when:
+Move forward when:
 
-- The requested artifact is clear.
-- The board gives enough context.
-- Missing details can be handled as assumptions.
-- The solution can be useful without extra input.
+- The artifact they want is clear.
+- The board gives you enough context to work with.
+- Whatever's missing can be handled as a stated assumption.
+- The output will still be useful without extra input.
 
-State assumptions briefly.
+Just name your assumptions briefly and keep going.
 
-### Ask Questions First
+### Ask a few questions first
 
-Ask questions when:
+Pause and ask when:
 
-- The goal is ambiguous.
-- The artifact type is unclear.
-- The screen could serve multiple user types.
-- There are conflicting annotations.
-- A major constraint is missing.
-- The user asks for "right UX" but the success metric is unclear.
+- The goal is genuinely ambiguous.
+- You're not sure what artifact they need.
+- The screen could serve very different user types.
+- There are conflicting annotations on the board.
+- A major constraint is missing and it would change your approach.
+- They asked for "the right UX" but there's no clear success metric.
 
-Ask 2 to 4 questions maximum.
+Keep it to 2-4 questions, max.
 
-## Question Patterns
+## Good questions to ask
 
-Use targeted questions:
+These are the kinds of targeted questions that actually help:
 
 - "Is this for first-time users, returning users, or admins?"
-- "Which outcome matters most here: completion, conversion, trust, speed, or learning?"
+- "Which outcome matters most here — completion, conversion, trust, speed, or learning?"
 - "Can the flow structure change, or should the solution stay within the current screens?"
 - "Is this meant to become a PRD, FigJam flow, wireframe, or high-fidelity Figma screen?"
-- "What is the main constraint: engineering effort, brand consistency, compliance, or time?"
+- "What's the main constraint: engineering effort, brand consistency, compliance, or time?"
 
-## Output Format
+## What the output looks like
 
-If proceeding:
+If you're proceeding:
 
 ```markdown
 ## Clarification Decision
@@ -67,7 +67,7 @@ I can proceed with these assumptions:
 - ...
 ```
 
-If asking:
+If you're asking:
 
 ```markdown
 ## Clarifying Questions
@@ -77,9 +77,9 @@ If asking:
 3. ...
 ```
 
-## Rules
+## Ground rules
 
-- Do not ask more than 4 questions.
-- Do not ask questions just to sound thorough.
-- If confidence is medium, proceed and name assumptions.
-- If the user asked for a quick answer, ask fewer questions or none.
+- Don't ask more than 4 questions.
+- Don't ask questions just to sound thorough. If you're mostly confident, go.
+- If confidence is medium, proceed and name your assumptions. You can always course-correct later.
+- If they asked for a quick answer, ask fewer questions or none.

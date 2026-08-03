@@ -1,75 +1,75 @@
 ---
 name: solution
-description: Use this subskill to generate the core UX recommendation after the board has been read and the problem has been articulated.
+description: Use this to generate the UX recommendation after the problem has been articulated. This is where you actually solve it.
 ---
 
-# Solution
+# Design the Solution
 
-## Purpose
+## What this step is for
 
-Use this subskill to generate the core UX recommendation after the board has been read and the problem has been articulated.
+You've named the problem. Now solve it. Walk through this the way you'd present in a design crit — diagnosis first, then your recommendation, then why, then the details.
 
-## Process
+## How to think through it
 
-1. Diagnose:
-   - What is not working?
-   - Why is it not working?
-   - What user behavior or confusion does it create?
+1. **What's broken and why?**
+   - What specific thing isn't working?
+   - Why is it failing? (Not "it's confusing" — *why* is it confusing?)
+   - What does the user do (or not do) as a result?
 
-2. Choose direction:
-   - Simplify
-   - Reorder
-   - Clarify
+2. **Pick a direction:**
+   - Simplify it
+   - Reorder it
+   - Clarify it
    - Add guidance
    - Remove friction
-   - Change hierarchy
+   - Change the hierarchy
    - Split the flow
    - Add feedback states
-   - Improve trust
-   - Improve recovery
+   - Build trust
+   - Make recovery cheaper
 
-3. Design the recommendation:
-   - Screen or flow change
-   - Copy change
-   - Interaction change
-   - State change
-   - Information architecture change
-   - Visual hierarchy change
+3. **Design the recommendation:**
+   - What screens or flows change?
+   - What copy changes?
+   - What interactions change?
+   - What states change (loading, error, empty, success)?
+   - Does the information architecture shift?
+   - Does the visual hierarchy need to change?
 
-4. Consider tradeoffs:
-   - Engineering cost
-   - Learning curve
-   - Business impact
-   - Accessibility
-   - Edge cases
-   - Consistency with existing product
+4. **Be honest about the tradeoffs:**
+   - How hard is this to build?
+   - Does it introduce a learning curve?
+   - What's the business impact?
+   - Does it affect accessibility?
+   - What are the edge cases?
+   - Does it break consistency with the rest of the product?
 
-5. Define next step:
-   - Validate with users
-   - Make wireframe
-   - Create Figma screen
-   - Write PRD
-   - Turn into research plan
-   - Add sticky notes to board
+5. **What's the next step?**
+   - Test it with users
+   - Wireframe it
+   - Build a Figma screen
+   - Write a PRD
+   - Turn it into a research plan
+   - Add notes to the board
 
-## Output Format
+## What the output looks like
 
 ```markdown
 ## UX Recommendation
 
-**Diagnosis**
+**What's broken**
 ...
 
-**Recommended direction**
+**What I'd do**
 ...
 
 **Why this works**
 ...
 
-**Changes to make**
+**What changes**
 - ...
 
-**Edge states**
+**Edge cases to handle**
 - ...
 
 **Tradeoffs**
@@ -79,29 +79,29 @@ Use this subskill to generate the core UX recommendation after the board has bee
 ...
 ```
 
-## Rules
+## Ground rules
 
-- Be opinionated but explain the reasoning.
-- Tie each recommendation back to the problem.
-- Include copy recommendations when UI language is part of the friction.
-- Avoid generic advice like "make it cleaner" without saying how.
+- Be opinionated. Say what you'd actually do, not "there are several options." But explain your reasoning.
+- Tie every recommendation back to the problem you named. If it doesn't connect, it's decoration.
+- Include copy recommendations when the words are part of the friction. They usually are.
+- "Make it cleaner" is not a recommendation. Say *how*.
 
-## Stance check (before finalising)
+## Stance check (do this before you're done)
 
-A senior designer diverges before converging. It is easy to commit to one stance without noticing you had a choice. This check forces you to see the choice.
+This is the step most designers skip, and it's where the best work happens. It's easy to commit to one approach without realising you had a choice. This check forces you to see the choice.
 
-Classify each intervention you proposed by its stance in the user's journey:
+Look at every intervention you proposed and classify it by where it sits in the user's journey:
 
-- **Prevent** — removes the friction moment entirely (e.g., let the user upload a prescription so they never see the ambiguous search).
-- **Assist** — supports the user at the friction moment (e.g., a disambiguation strip and richer cards on the search page).
-- **Recover** — makes it cheap to fix when the user goes wrong (e.g., a "not the right test?" rescue link on the detail page).
+- **Prevent** — removes the friction entirely. The user never hits the problem. (e.g., let them upload a prescription so they never see the confusing search results.)
+- **Assist** — helps the user at the friction point. They still encounter it, but the interface supports them through it. (e.g., richer cards and a disambiguation strip on the search page.)
+- **Recover** — makes it cheap to fix a mistake. The user went wrong, but getting back on track is easy. (e.g., a "not the right test?" rescue link on the detail page.)
 
-Then answer three questions:
+Now answer three questions:
 
-1. Which stance is the *primary* one in your solution? Pick one — "all three equally" is a dodge. Every solution has a centre of gravity.
-2. If you led with a different stance, what would the solution look like? Describe the alternative concretely, in one paragraph. Not "we could also prevent it" — actually sketch the Prevent-first version.
-3. Given the constraints, is your chosen primary the right one? If yes, name *why not the other two*.
+1. **Which stance is the primary one in your solution?** Pick one. "All three equally" is a dodge — every solution has a centre of gravity.
+2. **If you led with a different stance, what would the solution look like?** Actually sketch it in a paragraph. Not "we could also prevent it" — describe what the Prevent-first version looks like, concretely. Then do the same for the third stance.
+3. **Given the constraints, is your primary stance the right one?** If yes, explain why the other two aren't the lead. If you're not sure, that's worth saying.
 
-If you cannot answer question 2 with a genuinely different alternative, the divergent thinking did not happen — you defaulted to one stance without exploring. Go back and try.
+If you can't answer question 2 with a genuinely different alternative, the divergent thinking didn't happen — you defaulted to one approach without exploring. Go back and try.
 
-This step is not a formality. When a solution feels obvious, it is usually because one stance dominated your thinking silently. Making the alternatives explicit is how you catch that.
+This isn't a formality. When a solution feels obvious, it's usually because one stance took over your thinking without you noticing. Making the alternatives explicit is how you catch that.

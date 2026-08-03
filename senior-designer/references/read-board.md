@@ -1,38 +1,38 @@
 ---
 name: read-board
-description: Use this subskill to inspect selected Figma or FigJam content and convert messy visual context into a clear board interpretation.
+description: Look at what's on the Figma or FigJam board and turn messy visual context into a clear understanding of what's going on.
 ---
 
-# Read Board
+# Read the Board
 
-## Purpose
+## What this step is for
 
-Use this subskill to inspect selected Figma or FigJam content and convert messy visual context into a clear board interpretation.
+Before you can help, you need to understand what you're looking at. Boards are messy — frames, sticky notes, arrows, half-finished flows, annotations from three different people. This step is about reading all of that and making sense of it before you do anything else.
 
-## Inputs
+## What to look at
 
-Inspect:
+Go through everything on the board:
 
-- Selected frames and their order.
+- Selected frames and the order they're in.
 - Frame names and section labels.
 - Screenshots and UI states.
 - Flow arrows and connectors.
 - Sticky notes, comments, and annotations.
 - Highlighted areas, circles, callouts, and text notes.
-- User prompt and recent conversation.
+- The designer's prompt and any recent conversation.
 
-## Process
+## How to think through it
 
-1. Identify the artifact type:
-   - App screen
-   - User flow
-   - Concept sketch
-   - Product critique
-   - Research synthesis board
-   - Roadmap or planning board
-   - Mixed context
+1. **What type of thing is this?**
+   - An app screen
+   - A user flow
+   - A concept sketch
+   - A product critique
+   - A research synthesis board
+   - A roadmap or planning board
+   - A mix of several things
 
-2. Identify the likely product area:
+2. **What part of the product is this about?**
    - Onboarding
    - Activation
    - Search or discovery
@@ -41,9 +41,9 @@ Inspect:
    - Collaboration
    - Support or recovery
    - Analytics or reporting
-   - Other
+   - Something else
 
-3. Parse visible evidence:
+3. **What's actually visible?**
    - Main screens
    - Primary actions
    - User decision points
@@ -51,22 +51,22 @@ Inspect:
    - Error or edge states
    - Notes or objections from reviewers
 
-4. Infer the story:
+4. **What's the story here?**
    - Who is using this?
    - What are they trying to do?
-   - What happens before this moment?
-   - What happens after this moment?
+   - What happened before this moment?
+   - What happens after?
    - Where does the flow feel uncertain or broken?
 
-5. Mark ambiguity:
-   - Missing user type
-   - Missing business goal
-   - Missing entry point
-   - Missing success state
-   - Missing constraints
+5. **What's missing or unclear?**
+   - No user type specified
+   - No business goal stated
+   - No entry point shown
+   - No success state defined
+   - No constraints mentioned
    - Conflicting annotations
 
-## Output Format
+## What the output looks like
 
 ```markdown
 ## Board Understanding
@@ -93,9 +93,9 @@ Inspect:
 ...
 ```
 
-## Rules
+## Ground rules
 
-- Do not solve yet.
-- Do not invent product context without marking it as an assumption.
-- Treat annotations as first-class context.
-- If selected content is too sparse, say what is missing.
+- Don't solve yet. Just understand.
+- Don't invent product context without marking it as an assumption.
+- Treat annotations as first-class context — someone put those there for a reason.
+- If the selected content is too sparse to work with, say what's missing.
