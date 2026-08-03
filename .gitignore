@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Claude Code per-machine settings
+.claude/settings.local.json
+
+# Upstream mirror from anthropics/skills — not our code
+skill-creator/
