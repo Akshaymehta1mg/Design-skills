@@ -70,7 +70,7 @@ Note: A human must validate whether this is the right problem to solve.
 ---
 
 ### GATE 2 · The Solution
-**Factors: Efficiency · Error Tolerance · Ease of Learning**
+**Factors: Framing · Efficiency · Error Tolerance · Ease of Learning**
 
 #### BINARY CHECKS (Yes = 1, No = 0)
 
@@ -88,6 +88,7 @@ Note: A human must validate whether this is the right problem to solve.
 | 2.5 | Error message clarity | Do messages explain what happened, why, and how to fix? | /5 | 1 = generic "error occurred" · 2 = identifies the error but no fix · 3 = identifies + suggests fix · 4 = clear, specific, actionable · 5 = anticipates confusion, prevents repeat |
 | 2.6 | Step efficiency | How many steps does the key task take vs minimum possible? | /5 | 1 = 3x+ more steps than needed · 2 = 2x more · 3 = some bloat, 1-2 removable steps · 4 = tight, one step could merge · 5 = minimum viable steps, nothing to cut |
 | 2.7 | Onboarding weight | Does onboarding match task complexity? | /5 | 1 = overwhelming wall of info · 2 = too many steps before first action · 3 = adequate but front-loaded · 4 = light, lets user learn by doing · 5 = invisible, user succeeds without noticing onboarding |
+| 2.8 | Framing reframe quality | Did the designer take the problem statement (usually from PM or research) and reframe it into a *design-shaped* articulation — one that names the specific mismatch the design must resolve — rather than restating the user symptom? | /5 | 1 = restated the user symptom in different words ("users are confused") · 2 = named a friction but not a lever · 3 = adequate diagnosis, moves toward a design mechanism · 4 = clear reframe that points to specific design levers · 5 = sharp reframe of the shape *"the interface is treating X like Y, when the user is doing Z"* — the whole solution reads as an answer to this reframe, not to the original prompt |
 
 #### TEXTUAL (no score — insight only)
 
@@ -96,7 +97,7 @@ Note: A human must validate whether this is the right problem to solve.
 - **Flag for human:** "Can a new user complete the key task without help?" — Needs real user testing.
 - **Flag for human:** "Would the target user actually use it this way?" — Needs empathy, not logic.
 
-**Gate 2 score: __ / 19**
+**Gate 2 score: __ / 24**
 
 ---
 
@@ -291,7 +292,7 @@ Only scored gates (2, 3, 4, 5, 6) contribute to the overall score. N/A checks co
 
 ```
 earned    = sum of all Yes points + all rating points across Gates 2-6
-max       = 104 total possible points across Gates 2-6
+max       = 109 total possible points across Gates 2-6
 na_points = sum of the point value of every check marked N/A
 
 Overall = earned / (max − na_points) × 100
@@ -319,14 +320,14 @@ After completing all gates, produce the report card in this exact structure:
 ║            Agent Evil — v1.0                     ║
 ╠══════════════════════════════════════════════════╣
 ║                                                  ║
-║  OVERALL SCORE:  __/104  ( __%  · Grade: _ )     ║
+║  OVERALL SCORE:  __/109  ( __%  · Grade: _ )     ║
 ║                                                  ║
 ╠══════════════════════════════════════════════════╣
 ║                                                  ║
 ║  GATE SCORES                                     ║
 ║                                                  ║
 ║  1 · The Problem      ⚠️ HUMAN REVIEW            ║
-║  2 · The Solution     __/19  ( __% )             ║
+║  2 · The Solution     __/24  ( __% )             ║
 ║  3 · Subtract         __/18  ( __% )             ║
 ║  4 · Consistency      __/28  ( __% )             ║
 ║  5 · Fundamentals     __/33  ( __% )             ║

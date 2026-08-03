@@ -1,0 +1,48 @@
+{
+  "skill_name": "senior-designer",
+  "notes": "Test prompts for evaluating the senior-designer skill. Prompts marked 'real' come from actual sessions; those marked 'sample' are realistic placeholders — replace with real prompts from your work as you accumulate them. The goal is to run each prompt through the current skill and the modified skill (e.g., with the stance check added) and eyeball the diff.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "diagno-test-disambiguation",
+      "kind": "real",
+      "prompt": "Users search 'urine' on 1mg's diagnostics app and get 7 near-identical tests (Urine R, Urine RE, Urine Routine, Urine Culture, Urine ACR, etc.). Traffic is doctor-initiated — users have a prescription in hand but often cannot map their doctor's shorthand to the right SKU. Result cards all look the same (name + 'Contains N tests' + price + BOOK). Help the user pick the right test on the SRP and rescue them if they land on the wrong PDP.",
+      "expected_output": "A design brief (user, business goal, actual problem, constraints), a diagnosis of why users fail with the current result cards, interventions across SRP and PDP, and — if the stance check is present — each intervention classified by stance with a stated primary and reasoning for why not the other two."
+    },
+    {
+      "id": 2,
+      "name": "sample-checkout-drop-off",
+      "kind": "sample",
+      "prompt": "Our diagnostics checkout flow drops 32% of users at the address/slot step. User feedback says 'too many fields', but our analytics show the fields are not the slow part — the slot picker is. We ship in two weeks. How do we cut the drop-off?",
+      "expected_output": "A diagnosis that separates the reported friction ('too many fields') from the actual measured friction (slot picker), interventions targeting the real cause, and a stated primary stance with alternatives explicitly considered."
+    },
+    {
+      "id": 3,
+      "name": "sample-new-feature-ia",
+      "kind": "sample",
+      "prompt": "We are adding a home sample-collection scheduling flow. Today users book a test and go to a lab. The new flow lets them pick 'home collection' at booking. Where should home collection live in the app — as an option inside the existing PDP/booking flow, or as its own top-level entry point?",
+      "expected_output": "Framing of the IA tradeoff (feature-of-existing vs. new-surface), a clear stance on where it should live, and reasoning against the alternative — not just for the choice."
+    },
+    {
+      "id": 4,
+      "name": "sample-pdp-critique",
+      "kind": "sample",
+      "prompt": "Critique this diagnostics PDP: header with test name and 'Also referred as' aliases, then '82,900 booked recently', then two boxes ('Report in 6 hrs' and 'Contains 19 tests'), then price with strike-through discount, then an orange BOOK button, then an offers strip, then a gradient 'know more about this test' card lower down. What is working, what is not, and what would you change first?",
+      "expected_output": "An ordered critique that identifies which elements aid the booking decision vs. which distract from it, and names the single highest-leverage change with justification — not a laundry list of complaints."
+    },
+    {
+      "id": 5,
+      "name": "sample-cancellation-copy",
+      "kind": "sample",
+      "prompt": "Write the copy for the state a user sees when a booked home-collection slot is cancelled by the lab (not the user's fault) — happens in ~4% of bookings. The user has already paid. The copy needs to: (a) not panic them, (b) tell them what happens next, (c) offer the reschedule action.",
+      "expected_output": "Copy for header, body, and CTA. Should not over-apologise, should give the concrete next step in plain language, and should feel calm rather than alarming."
+    },
+    {
+      "id": 6,
+      "name": "rx-validation-revamp",
+      "kind": "real",
+      "prompt": "Problem Statement: Rx Validation Revamp (No-Rx Path)\n\nWhat we know from research and data:\n- The 'Ambush' Call: Customers experience high friction when receiving unannounced, synchronous phone calls from doctors after they believe their order process is already complete.\n- Silent Stalls: Approximately 3.6% of all Rx orders stall because missed calls lead to orders being placed on hold without notifying the user or providing a clear retry schedule.\n- Opaque Status: Validation status is difficult for users to locate once they leave the order success page, leading to increased customer support queries and anxiety.\n- Business Impact: There is a direct correlation between wait times and order abandonment; cancellation rates spike to 42.7% when users have to wait more than 30 minutes for validation.\n\nWhat we want to solve:\n- Eliminate Surprise Friction: Transition from 'ambush' calls to a more transparent, scheduled, or asynchronous communication flow that aligns with user expectations.\n- Reduce Order Stalls: Implement automated triggers and notifications for missed calls to ensure orders don't sit in a 'silent' hold state.\n- Improve Status Visibility: Create a persistent and easily accessible validation tracker within the user journey to reduce support overhead and improve trust.\n- Optimize Conversion: Decrease the cancellation rate by reducing wait times and providing a more predictable validation window, specifically targeting the high-drop-off 30-minute mark.",
+      "expected_output": "A design-shaped reframe (Form 3) that names the specific mismatch — not a restatement of the four 'what we want to solve' bullets. A solution addressing all three stances (Prevent the ambush / Assist during the wait / Recover from stall), with a named primary stance and a genuine alternative-stance sketch. Copy or state examples for the validation tracker."
+    }
+  ]
+}
