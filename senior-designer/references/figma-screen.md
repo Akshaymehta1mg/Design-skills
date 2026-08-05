@@ -36,10 +36,21 @@ If no design system MCP is connected, use standard mobile patterns and name them
 
 The table is the contract. Every element in the HTML must trace back to a row in this table. If a row says "Design System Component: —", that's an explicit decision to create something new — not a silent omission.
 
-### Step B: Design the screen
+### Step B: Content plan (do this BEFORE writing any HTML)
+
+For each screen or surface, write out the actual content — not structure labels, but real words:
+
+- **What the user sees** — the specific information shown on this screen
+- **What the copy says** — headline, body text, button labels, helper text, error messages
+- **What the user decides** — the action they take and what happens next
+- **What's deliberately hidden** — information withheld for privacy, simplicity, or progressive disclosure
+
+This is where the UX thinking happens. The component mapping tells you *what to build with*. The content plan tells you *what to say*. Both must be visible outputs before you write HTML.
+
+### Step C: Build the screen
 
 1. Define the screen's purpose and its primary action.
-2. Build the screen using the components from your mapping table. The CSS for each component should match the design system's tokens (colors, spacing, radius, font sizes) — not your own values.
+2. Build the screen using the components from your mapping table and the content from your content plan. The CSS for each component should match the design system's tokens (colors, spacing, radius, font sizes) — not your own values.
 3. Only create a custom element when the mapping table explicitly flagged it as "New component needed." If you find yourself writing CSS for a component that has a match in the table, stop and use the design system version instead.
 4. If an existing component is close but not perfect, **use it anyway** and note the gap. "Used Card/Default but it needs a new variant with an action strip" is better than silently building a custom card that doesn't match anything in the system.
 5. Include required states if they're relevant to the task.

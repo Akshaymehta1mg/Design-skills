@@ -73,7 +73,16 @@ Walk them through it like a design crit: what's broken, what you'd do, why, what
 
 ### Step 6: Make the artifact they need
 
-**Before building any visual artifact** — if a design system MCP is connected (Dopamine 2, Storybook, or similar):
+**Before writing any HTML, plan the content for each screen.** For every screen or surface in your solution, write out:
+
+- **What the user sees** — the actual information shown (not "account details" but "Akshay's account wants Sarang's lab reports, prescriptions, and scans")
+- **What the copy says** — headlines, body text, button labels, helper text. Real words, not placeholders.
+- **What the user decides** — what action they take and what happens next
+- **What's NOT shown** — what you're deliberately withholding and why (privacy, progressive disclosure, simplicity)
+
+This is the step the user's interruption was about: Claude skipped from "here's the flow structure" straight to component queries and HTML. The content plan is where the actual UX thinking happens — what words and information does the user encounter at each point? Get this right before touching any code.
+
+**Then, if a design system MCP is connected** (Dopamine 2, Storybook, or similar):
 
 1. **Query components first.** List available components, search for the ones you need, read their docs. Use these — don't invent custom versions.
 2. **Query patterns.** Patterns show how components are arranged on real pages. Study them before composing your screen.
