@@ -40,8 +40,10 @@ These are non-negotiable. A wireframe from a senior designer looks like a senior
 - Reference icons by name and library, e.g., "Hugeicons / arrow-left" or "thiings / clipboard".
 
 **Components:**
-- If the user has provided a Storybook, component library, or design system reference — **use those components**. Don't invent new ones when the system already has them.
-- Match the component names, states, and variants from the design system. If the system has a "Button/Primary/Large", use that — don't describe a custom button.
+- If a design system MCP is connected (Dopamine 2, Storybook, etc.) — **query it before building.** List the components, search for the ones you need, and read their docs. Even at wireframe fidelity, reference real component names so the design translates cleanly to high-fi.
+- Match the component names, states, and variants from the design system. If the system has `HorizontalTabs/highlighted`, reference that — don't describe a custom tab bar.
+- Also check available patterns — they show how the product composes pages. A wireframe that follows the product's existing page patterns feels right even at low fidelity.
+- Only introduce a new component when nothing in the system fits. Flag it explicitly: "New component — no match in current system."
 - If no design system is provided, use standard mobile patterns (bottom sheet, card, list item, tab bar) and name them clearly.
 
 **Spacing and layout:**

@@ -118,6 +118,14 @@ When the solution has structure — a flow between surfaces, layered interventio
 
 Call `references/artifact-router.md`.
 
+**Before building any visual artifact** — if a design system MCP is connected (Dopamine 2, Storybook, or similar):
+
+1. **Query components first.** List available components, search for the ones you need (tabs, cards, buttons, inputs, etc.), and read their docs. Use these — don't invent custom versions.
+2. **Query patterns.** Patterns show how components are arranged on real pages — the layout conventions, section ordering, and spacing rules that make a page feel like it belongs in this product. Study them before composing your screen.
+3. **Reuse 90% of the time.** Only create a new component when no existing one genuinely fits. If an existing component is close but not perfect, use it and note the gap — don't silently replace it with a custom one.
+
+This is what senior designers do: they build with the system, not around it.
+
 If they asked for something specific, make it:
 
 - Flow, journey, sitemap, state diagram → `references/user-flow.md`

@@ -11,12 +11,17 @@ This is where the design gets real. You're creating (or revising) a screen that 
 
 ## How to think through it
 
-1. Look at nearby frames and the existing visual system. What patterns are already established?
-2. Identify reusable components, styles, typography, spacing, and interaction patterns.
+1. **Query the design system first.** If a design system MCP is connected (Dopamine 2, Storybook, etc.), do this BEFORE writing any code:
+   - List all available components. Search for the ones this screen needs — tabs, cards, buttons, inputs, headers, bottom sheets, etc.
+   - Read the component docs. Understand the variants, props, sizes, and states each component supports.
+   - List and read available patterns. Patterns show how components are composed into actual pages — the section ordering, layout conventions, and spacing that make a screen feel like this product. Study the patterns that are closest to what you're building.
+   - Preview components and patterns when available. Seeing the rendered output tells you more than reading the spec.
+2. Map every element on your screen to an existing component. A tab bar is not "a row of styled divs" — it's `HorizontalTabs/highlighted` or whatever the system calls it. A card is not "a box with rounded corners" — it's `Card/Default` with the system's exact padding, radius, and shadow.
 3. Define the screen's purpose and its primary action.
-4. Create or revise the screen, staying within the existing design direction wherever possible.
-5. Include required states if they're relevant to the task.
-6. Add concise labels or annotations only if the board needs them for clarity.
+4. Create or revise the screen using existing components for **90% or more** of the UI. Only create a custom element when no existing component genuinely fits — and when you do, document it explicitly as a new component.
+5. If an existing component is close but not perfect for your use case, **use it anyway** and note the gap. "Used Card/Default but it needs a new variant with an action strip" is better than silently building a custom card that doesn't match anything in the system.
+6. Include required states if they're relevant to the task.
+7. Add concise labels or annotations only if the board needs them for clarity.
 
 ## Visual quality standards
 
@@ -44,10 +49,18 @@ A senior designer's screen looks like a real product, not a prototype someone ru
 - For illustrations, onboarding graphics, empty states, and large decorative icons: use **thiings.co** (https://www.thiings.co/things). Reference by name: "thiings / clipboard", "thiings / check-circle", etc.
 - When rendering via `show_widget`, use simple SVG paths for icons or reference them by label. Don't substitute Unicode symbols or emojis.
 
-**Components and design system:**
-- If the user provided a **Storybook**, component library, or design system reference — **use those exact components.** Match the names, variants, and states from the system.
-- Don't invent a custom card when the system has "Card/Default". Don't create a new button style when "Button/Primary/Medium" exists.
-- If the system specifies spacing tokens, color tokens, or corner radius values — use them.
+**Components and design system (this is the most important section):**
+- If a design system MCP is connected — **you must query it and use its components.** This is not optional. A senior designer builds with the system, not around it.
+- Before writing any artifact code, run through this checklist:
+  1. Did I list the available components?
+  2. Did I search for each component type I need (tabs, buttons, cards, inputs, etc.)?
+  3. Did I read the docs for each component I'm using?
+  4. Did I check available page patterns to understand how this product composes screens?
+  5. Am I using the system's exact component names, variants, tokens, and spacing?
+- If the system has a `HorizontalTabs` component, you use `HorizontalTabs` — you don't build a custom tab bar with flexbox and borders. If it has `Button/Primary/Medium`, you use that — you don't write a custom button style.
+- If the system specifies spacing tokens, color tokens, or corner radius values — use them. Don't override with your own values.
+- If an existing component is close but not perfect, **use it and note what's missing** ("Used StatusBadge but needed a variant with an icon — flagging as a design system gap"). Don't silently create a custom replacement.
+- Only create a genuinely new component when nothing in the system fits. When you do, document it in the spec as "New component — not in the current system" so the team knows it needs to be added.
 - If no design system is provided, use clean standard mobile patterns and document what you used so it can be translated into the actual system later.
 
 **Spacing and layout:**
