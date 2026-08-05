@@ -7,64 +7,18 @@ description: Look at what's on the Figma or FigJam board and turn messy visual c
 
 ## What this step is for
 
-Before you can help, you need to understand what you're looking at. Boards are messy — frames, sticky notes, arrows, half-finished flows, annotations from three different people. This step is about reading all of that and making sense of it before you do anything else.
+Before you can help, you need to understand what you're looking at. Boards are messy — frames, sticky notes, arrows, half-finished flows, annotations from three different people. Read all of it and make sense of it before you do anything else.
 
 ## What to look at
 
-Go through everything on the board:
-
-- Selected frames and the order they're in.
-- Frame names and section labels.
-- Screenshots and UI states.
-- Flow arrows and connectors.
-- Sticky notes, comments, and annotations.
-- Highlighted areas, circles, callouts, and text notes.
-- The designer's prompt and any recent conversation.
+Go through everything on the board: selected frames and their order, frame names and labels, screenshots and UI states, flow arrows and connectors, sticky notes and annotations, highlighted areas and callouts, the designer's prompt and recent conversation.
 
 ## How to think through it
 
-1. **What type of thing is this?**
-   - An app screen
-   - A user flow
-   - A concept sketch
-   - A product critique
-   - A research synthesis board
-   - A roadmap or planning board
-   - A mix of several things
-
-2. **What part of the product is this about?**
-   - Onboarding
-   - Activation
-   - Search or discovery
-   - Checkout or conversion
-   - Settings or admin
-   - Collaboration
-   - Support or recovery
-   - Analytics or reporting
-   - Something else
-
-3. **What's actually visible?**
-   - Main screens
-   - Primary actions
-   - User decision points
-   - System states
-   - Error or edge states
-   - Notes or objections from reviewers
-
-4. **What's the story here?**
-   - Who is using this?
-   - What are they trying to do?
-   - What happened before this moment?
-   - What happens after?
-   - Where does the flow feel uncertain or broken?
-
-5. **What's missing or unclear?**
-   - No user type specified
-   - No business goal stated
-   - No entry point shown
-   - No success state defined
-   - No constraints mentioned
-   - Conflicting annotations
+1. **What type of thing is this?** — An app screen, a user flow, a concept sketch, a critique, a research synthesis, a planning board, or a mix?
+2. **What part of the product is this about?** — Name the feature area.
+3. **What's the story?** — Who's using this, what are they trying to do, what happened before this moment, what happens after, where does the flow feel uncertain?
+4. **What's missing?** — No user type? No business goal? No entry point? No success state? Conflicting annotations?
 
 ## What the output looks like
 

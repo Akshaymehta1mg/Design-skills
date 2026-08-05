@@ -11,17 +11,39 @@ This is where the design gets real. You're creating (or revising) a screen that 
 
 ## How to think through it
 
-1. **Query the design system first.** If a design system MCP is connected (Dopamine 2, Storybook, etc.), do this BEFORE writing any code:
-   - List all available components. Search for the ones this screen needs — tabs, cards, buttons, inputs, headers, bottom sheets, etc.
-   - Read the component docs. Understand the variants, props, sizes, and states each component supports.
-   - List and read available patterns. Patterns show how components are composed into actual pages — the section ordering, layout conventions, and spacing that make a screen feel like this product. Study the patterns that are closest to what you're building.
-   - Preview components and patterns when available. Seeing the rendered output tells you more than reading the spec.
-2. Map every element on your screen to an existing component. A tab bar is not "a row of styled divs" — it's `HorizontalTabs/highlighted` or whatever the system calls it. A card is not "a box with rounded corners" — it's `Card/Default` with the system's exact padding, radius, and shadow.
-3. Define the screen's purpose and its primary action.
-4. Create or revise the screen using existing components for **90% or more** of the UI. Only create a custom element when no existing component genuinely fits — and when you do, document it explicitly as a new component.
-5. If an existing component is close but not perfect for your use case, **use it anyway** and note the gap. "Used Card/Default but it needs a new variant with an action strip" is better than silently building a custom card that doesn't match anything in the system.
-6. Include required states if they're relevant to the task.
-7. Add concise labels or annotations only if the board needs them for clarity.
+### Step A: Component mapping (do this BEFORE writing any HTML)
+
+This step produces a visible output — a table the designer can review. Don't skip it, don't do it mentally, don't merge it into the HTML generation. Output it as text first.
+
+If a design system MCP is connected (Dopamine 2, Storybook, etc.):
+
+1. List every UI element the screen needs (buttons, inputs, tabs, cards, bottom sheets, headers, etc.).
+2. For each element, **query the MCP**: search for that component type, read its docs, check its variants and states.
+3. Also query patterns — these show how the product composes pages (section order, layout, spacing).
+4. Output a **Component Mapping Table** before writing any code:
+
+```
+| UI Element         | Design System Component        | Variant/State        | Notes              |
+|--------------------|--------------------------------|----------------------|--------------------|
+| Tab bar            | HorizontalTabs/highlighted     | 40px, pill, 999px    | —                  |
+| Primary CTA        | Button/Primary/Large           | full-width, 48px     | —                  |
+| OTP input          | OTPInput/Default               | 4-digit, all states  | —                  |
+| Share panel        | BottomSheet/Default            | half-height, handle  | —                  |
+| Custom: risk badge | —                              | —                    | New component needed |
+```
+
+If no design system MCP is connected, use standard mobile patterns and name them clearly.
+
+The table is the contract. Every element in the HTML must trace back to a row in this table. If a row says "Design System Component: —", that's an explicit decision to create something new — not a silent omission.
+
+### Step B: Design the screen
+
+1. Define the screen's purpose and its primary action.
+2. Build the screen using the components from your mapping table. The CSS for each component should match the design system's tokens (colors, spacing, radius, font sizes) — not your own values.
+3. Only create a custom element when the mapping table explicitly flagged it as "New component needed." If you find yourself writing CSS for a component that has a match in the table, stop and use the design system version instead.
+4. If an existing component is close but not perfect, **use it anyway** and note the gap. "Used Card/Default but it needs a new variant with an action strip" is better than silently building a custom card that doesn't match anything in the system.
+5. Include required states if they're relevant to the task.
+6. Add concise labels or annotations only if the board needs them for clarity.
 
 ## Visual quality standards
 
@@ -135,9 +157,23 @@ Use `show_widget` only for quick thinking sketches during Steps 1–5 (flows, co
 
 **Phone frame at 360×800.** The artifact renders inside a phone-shaped frame at exactly 360×800px, centered on the page. The tab switcher sits outside the phone frame (above or below), not inside it.
 
+**Pages vs. bottom sheets.** Not every screen is a tab. Classify each surface from the solution step:
+
+- **Pages** (new destination, distinct task) → each gets its own tab. Examples: home, search results, product detail, checkout, profile.
+- **Bottom sheets** (contextual action within a page) → render as a slide-up overlay *on their parent page's tab*. The parent page stays visible behind them, dimmed. Examples: share, filter, sort, date/time picker, quantity selector, confirmation dialogs, payment method selection.
+
+The test: if the user triggered this action from a specific page and will return to that same page when done, it's a bottom sheet — not a new tab.
+
+**How to build bottom sheets in the HTML artifact:**
+- The bottom sheet slides up from the bottom of the phone frame, covering 40–70% of the viewport height depending on content.
+- It has a drag handle (small horizontal bar, 40×4px, centered, rounded) at the top and an optional close/X button.
+- The parent page is visible behind it with a semi-transparent dark overlay (rgba(0,0,0,0.4)).
+- The trigger button on the parent page opens the sheet; tapping the overlay or the close button dismisses it.
+- A tab label like "Recommendation" shows the page; when the user taps the share button on that page, the share bottom sheet slides up. This is one tab with two states — not two tabs.
+
 **Edge cases and error states always included.** If the solution has error states, empty states, or recovery flows — add them as separate tabs. Every error or edge-case screen gets a visible retry/refresh button and clear recovery copy. Don't hide edge cases — they're the screens that ship broken when nobody designs them.
 
-**Interactivity.** Buttons and CTAs in the artifact should be clickable and advance to the next screen/tab. Back buttons should work. If a flow has branching (e.g., success vs. error), wire both paths. The artifact should feel like a prototype, not a slideshow.
+**Interactivity.** Buttons and CTAs in the artifact should be clickable and advance to the next screen/tab. Back buttons should work. If a flow has branching (e.g., success vs. error), wire both paths. Bottom sheet triggers should open the sheet with a smooth slide-up animation. The artifact should feel like a prototype, not a slideshow.
 
 ## Visual quality when building HTML
 
@@ -148,6 +184,16 @@ Use `show_widget` only for quick thinking sketches during Steps 1–5 (flows, co
 - Use a proper color palette. If the product's brand colors are known, use them. Otherwise use a clean neutral palette.
 - Match the spacing to an 8px grid. Elements shouldn't float in random positions.
 - All interactive elements (buttons, links, tabs) must have click handlers wired from the start. Don't ship a static artifact that needs "fixing" later.
+
+## Post-artifact self-check
+
+After writing the HTML, scan your own code before publishing. For every CSS class or styled element, ask: does this match a row in my Component Mapping Table?
+
+- If you wrote custom CSS for a button, input, tab, card, bottom sheet, or any standard UI element — and the mapping table has a design system match for it — you broke the contract. Replace your custom CSS with the design system's tokens (colors, sizes, radius, spacing).
+- If you used colors, font sizes, or spacing values that aren't from the design system's tokens — and the MCP provided those tokens — replace them.
+- If you styled a component state (hover, active, error, success) differently from how the design system defines it — match the system.
+
+This check exists because it's tempting to freestyle CSS when you know how to make things look good. But the point of a design system is that components look consistent across the product — not that each screen invents its own version.
 
 ## Ground rules
 

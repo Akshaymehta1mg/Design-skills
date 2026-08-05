@@ -36,6 +36,15 @@ You've named the problem. Now solve it. Walk through this the way you'd present 
    - Does the information architecture shift?
    - Does the visual hierarchy need to change?
 
+   **Classify every surface.** For each screen or action in your solution, decide: is this a **page** or a **bottom sheet**?
+
+   - **Page** — a new destination. The user is leaving their current context to do a distinct task. Examples: checkout, profile, search results, order tracking, a detail page. These get their own tab in the artifact.
+   - **Bottom sheet** — a contextual action that happens *within* the current page. The user's primary task stays visible underneath. The action is temporary, supplementary, or confirmatory. Examples: share, filter, sort, date picker, quantity selector, quick confirmation ("Remove this item?"), payment method selection. These render as an overlay on their parent page, not a separate tab.
+
+   The test is simple: **if the user would tap the back button to return to what they were doing, it's probably a bottom sheet.** If they'd use the nav bar or a deep link to get there, it's a page.
+
+   When you list "what changes" in your recommendation, tag each surface — e.g., "Share options (bottom sheet on recommendation page)" or "Order summary (new page)." This classification carries directly into the artifact.
+
 4. **Be honest about the tradeoffs:**
    - How hard is this to build?
    - Does it introduce a learning curve?

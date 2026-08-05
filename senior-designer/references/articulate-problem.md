@@ -7,53 +7,26 @@ description: Use this after reading what the designer shared and before proposin
 
 ## What this step is for
 
-This is the step where you stop and name what's actually going on. Before you propose anything, figure out who's struggling, why, and what "fixed" looks like. If you skip this, everything downstream is a guess.
+Stop and name what's actually going on. Before you propose anything, figure out who's struggling, why, and what "fixed" looks like. If you skip this, everything downstream is a guess.
 
 ## How to think through it
 
-1. **Who's the user?**
-   - What kind of person are they?
-   - How experienced are they with this product?
-   - What are they trying to do right now?
-   - What's their emotional state? (Anxious? Rushed? Confused? Confident?)
-   - What constraints are they working under?
-
-2. **What's the job they're trying to get done?**
-   - What does "progress" mean to them?
-   - What's blocking that progress right now?
-
-3. **What's the product trying to achieve?**
-   - Is this about activation, conversion, retention, trust, comprehension, collaboration, efficiency, or error recovery?
-   - Pick one primary goal. "All of them" is not an answer.
-
-4. **Where exactly does it break down?**
-   - Is the next step unclear?
-   - Are there too many choices?
-   - Is feedback missing?
-   - Is the information hierarchy wrong?
-   - Is the flow logic broken?
-   - Is motivation weak?
-   - Is there a trust gap?
-   - Is it an accessibility issue?
-   - Does the copy say the wrong thing?
-
-5. **Frame the design challenge:**
-   - What's the user's problem?
-   - What's the product's problem?
-   - What's the design challenge that connects them?
-   - How will we know it's working?
+1. **Who's the user?** What kind of person, how experienced, what are they trying to do, what's their emotional state?
+2. **What's the job?** What does "progress" mean to them? What's blocking it?
+3. **What's the product trying to achieve?** Pick one primary goal — activation, conversion, retention, trust, comprehension, efficiency, or error recovery.
+4. **Where exactly does it break down?** Is the next step unclear, are there too many choices, is feedback missing, is the hierarchy wrong, does the copy say the wrong thing?
 
 ## Reframe check (do this every time)
 
-Before you move on, state the problem in three forms. This takes a minute and it stops the entire solution from being built on a shallow problem statement.
+State the problem in three forms. This stops the entire solution from being built on a shallow problem statement.
 
-**Form 1 — How the PM framed it.** The problem as stated in the brief, ticket, or research doc. Take this as given — research validated it. Your job isn't to relitigate whether it's the right problem.
+**Form 1 — How the PM framed it.** The problem as stated in the brief or ticket. Take this as given.
 
-**Form 2 — How the user would say it.** The same problem in the user's own words. Usually starts with "I can't..." or "I get confused when..." This is true but not useful on its own — it names the pain without pointing to what to change.
+**Form 2 — How the user would say it.** The same problem in the user's words. Usually starts with "I can't..." or "I get confused when..."
 
-**Form 3 — The design-shaped version.** The same problem restated so it names the specific mismatch the design needs to fix. The shape is usually: *"the interface is treating X like Y, when the user is actually doing Z"* or *"the surface asks A, but the user's real task is B."* Everything downstream — your solution, your stance, your artifact — should answer Form 3, not Form 1.
+**Form 3 — The design-shaped version.** Restated to name the specific mismatch the design needs to fix: *"the interface is treating X like Y, when the user is actually doing Z."* Everything downstream — solution, stance, artifact — should answer Form 3, not Form 1.
 
-**Quick self-check:** If Form 3 is just Form 1 with different words, you haven't reframed. Look for the gap between what the interface offers and what the user is actually trying to do. That gap is where the design lever is.
+**Self-check:** If Form 3 is just Form 1 with different words, you haven't reframed. Look for the gap between what the interface offers and what the user is trying to do.
 
 **Example — diagnostics search:**
 
@@ -92,5 +65,4 @@ How might we ...
 
 - Name the problem before you touch the solution. Always.
 - Keep it human and specific. "Users experience friction" is not a problem statement.
-- Don't use generic UX jargon unless you can tie it to something visible in the work.
-- Save "How might we..." for after the problem is clear. It's a framing tool, not a starting point.
+- Save "How might we..." for after the problem is clear.

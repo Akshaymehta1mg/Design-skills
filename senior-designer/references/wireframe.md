@@ -39,12 +39,22 @@ These are non-negotiable. A wireframe from a senior designer looks like a senior
 - For illustrations and large decorative icons: use **thiings.co** (https://www.thiings.co/things).
 - Reference icons by name and library, e.g., "Hugeicons / arrow-left" or "thiings / clipboard".
 
-**Components:**
-- If a design system MCP is connected (Dopamine 2, Storybook, etc.) — **query it before building.** List the components, search for the ones you need, and read their docs. Even at wireframe fidelity, reference real component names so the design translates cleanly to high-fi.
-- Match the component names, states, and variants from the design system. If the system has `HorizontalTabs/highlighted`, reference that — don't describe a custom tab bar.
-- Also check available patterns — they show how the product composes pages. A wireframe that follows the product's existing page patterns feels right even at low fidelity.
-- Only introduce a new component when nothing in the system fits. Flag it explicitly: "New component — no match in current system."
-- If no design system is provided, use standard mobile patterns (bottom sheet, card, list item, tab bar) and name them clearly.
+**Components (do this before writing any HTML):**
+
+If a design system MCP is connected (Dopamine 2, Storybook, etc.) — query it and produce a **Component Mapping Table** before writing any code. For each UI element in the wireframe, search the MCP for a match, read its docs, and record the mapping. Even at wireframe fidelity, use real component names so the design translates cleanly to high-fi.
+
+```
+| UI Element     | Design System Component     | Notes              |
+|----------------|-----------------------------|--------------------|
+| Tab bar        | HorizontalTabs/highlighted  | —                  |
+| Input field    | TextInput/Default           | —                  |
+| Share panel    | BottomSheet/Default         | —                  |
+| Custom: badge  | —                           | New component needed |
+```
+
+The table is the contract — every element in the HTML traces back to a row. If a row has no design system match, that's an explicit decision, not a silent skip. Don't invent styled versions of components that exist in the system.
+
+If no design system is provided, use standard mobile patterns (bottom sheet, card, list item, tab bar) and name them clearly.
 
 **Spacing and layout:**
 - Use consistent spacing. Pick an 8px grid and stick to it.
@@ -99,9 +109,16 @@ These are non-negotiable. A wireframe from a senior designer looks like a senior
 
 **Phone frame at 360×800.** The wireframe renders inside a phone-shaped frame at 360×800px, centered on the page. Tab switcher sits outside the frame.
 
+**Pages vs. bottom sheets.** Classify each surface from the solution step:
+
+- **Pages** (distinct destination or task) → own tab. Examples: home, search, detail page, checkout.
+- **Bottom sheets** (contextual action on a page) → slide-up overlay on the parent page's tab. Examples: share, filter, sort, date picker, confirmation, quick selection.
+
+If the user triggered it from a page and returns to that page when done, it's a bottom sheet — not a new tab. In the wireframe, bottom sheets appear as a panel covering the lower 40–70% of the phone frame, with a drag handle at top and the parent page dimmed behind. The trigger button on the parent page toggles the sheet open.
+
 **Include edge-case screens.** Error states, empty states, and recovery flows should be separate tabs with visible retry/refresh actions. These screens matter most and get skipped most — don't skip them.
 
-**Interactivity.** Wire up buttons and CTAs to advance between screens. Back buttons should work. The wireframe should feel navigable, not static.
+**Interactivity.** Wire up buttons and CTAs to advance between screens. Back buttons should work. Bottom sheet triggers should open the sheet with a slide-up transition. The wireframe should feel navigable, not static.
 
 ## Visual quality when building HTML
 
@@ -111,6 +128,14 @@ These are non-negotiable. A wireframe from a senior designer looks like a senior
 - Keep it grayscale or near-grayscale — this is a wireframe, not a mockup.
 - Show real content, not "Lorem ipsum". Use realistic names, prices, labels.
 - All interactive elements must have click handlers from the start.
+
+## Post-artifact self-check
+
+After writing the HTML, scan your code before publishing. For every styled element, check it against the Component Mapping Table you produced earlier:
+
+- If you wrote custom styles for a component that has a design system match in the table — replace it with the system's structure.
+- If you used layout, spacing, or sizing values that contradict the design system's patterns — match them.
+- Even at wireframe fidelity, the component *structure* (height, padding, border-radius pattern) should match the system. The *colors* can stay grayscale.
 
 ## Ground rules
 
