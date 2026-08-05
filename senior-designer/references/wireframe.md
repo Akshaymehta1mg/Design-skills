@@ -91,16 +91,26 @@ These are non-negotiable. A wireframe from a senior designer looks like a senior
 - Success:
 ```
 
-## When rendering as show_widget
+## How to deliver the artifact
 
-If you're producing the wireframe as an inline visual (SVG or HTML via `show_widget`):
+**Always save as an HTML file and publish with the Artifact tool.** Don't render the wireframe inline in chat via `show_widget`. Inline diagrams are for reasoning during Steps 1–5. The wireframe itself is a shareable artifact the designer sends to their team.
 
-- Set the viewport to **360×800** or a proportional slice of it.
-- Use a clean sans-serif font (system-ui) at realistic mobile sizes.
+**Multi-screen flows get tabs.** If the wireframe covers multiple screens (it usually does), include a tab bar or screen switcher so the viewer can flip between them — don't stack screens in one long scroll.
+
+**Phone frame at 360×800.** The wireframe renders inside a phone-shaped frame at 360×800px, centered on the page. Tab switcher sits outside the frame.
+
+**Include edge-case screens.** Error states, empty states, and recovery flows should be separate tabs with visible retry/refresh actions. These screens matter most and get skipped most — don't skip them.
+
+**Interactivity.** Wire up buttons and CTAs to advance between screens. Back buttons should work. The wireframe should feel navigable, not static.
+
+## Visual quality when building HTML
+
+- Phone frame: **360×800px**, centered, subtle device border.
+- Clean sans-serif font (system-ui) at realistic mobile sizes.
 - No emojis. Use simple SVG shapes for icon placeholders, or reference the icon by name in a label.
 - Keep it grayscale or near-grayscale — this is a wireframe, not a mockup.
 - Show real content, not "Lorem ipsum". Use realistic names, prices, labels.
-- If you're showing multiple screens, keep them at the same scale. Don't stretch one to fill space.
+- All interactive elements must have click handlers from the start.
 
 ## Ground rules
 

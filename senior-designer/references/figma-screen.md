@@ -125,16 +125,29 @@ A senior designer's screen looks like a real product, not a prototype someone ru
 - ...
 ```
 
-## When rendering as show_widget
+## How to deliver the artifact
 
-If you're producing the screen as an inline visual:
+**Always save as an HTML file and publish with the Artifact tool.** Never render the final design artifact inline in chat via `show_widget`. Inline diagrams are for reasoning — the artifact itself must be a standalone file the designer can share with their team.
 
-- Set the SVG viewBox or HTML container to **360×800** (or a proportional crop for a single section).
+Use `show_widget` only for quick thinking sketches during Steps 1–5 (flows, comparisons, problem diagrams). The actual design output in Step 6 is always a published HTML artifact.
+
+**Multi-screen flows get tabs.** If the design has multiple screens or states (which it almost always does), the artifact must include a tab bar or screen switcher so the viewer can navigate between them. Don't stack screens vertically in one long scroll — tabs let reviewers focus on one screen at a time and compare.
+
+**Phone frame at 360×800.** The artifact renders inside a phone-shaped frame at exactly 360×800px, centered on the page. The tab switcher sits outside the phone frame (above or below), not inside it.
+
+**Edge cases and error states always included.** If the solution has error states, empty states, or recovery flows — add them as separate tabs. Every error or edge-case screen gets a visible retry/refresh button and clear recovery copy. Don't hide edge cases — they're the screens that ship broken when nobody designs them.
+
+**Interactivity.** Buttons and CTAs in the artifact should be clickable and advance to the next screen/tab. Back buttons should work. If a flow has branching (e.g., success vs. error), wire both paths. The artifact should feel like a prototype, not a slideshow.
+
+## Visual quality when building HTML
+
+- Phone frame: **360×800px**, centered on the page with a subtle device border.
 - Use realistic mobile text sizes. 14px body, 20px title — not 24px body and 36px title.
 - No emojis anywhere. Use simple SVG paths or labeled rectangles for icon placeholders.
 - Show real, specific content — not placeholder text.
 - Use a proper color palette. If the product's brand colors are known, use them. Otherwise use a clean neutral palette.
 - Match the spacing to an 8px grid. Elements shouldn't float in random positions.
+- All interactive elements (buttons, links, tabs) must have click handlers wired from the start. Don't ship a static artifact that needs "fixing" later.
 
 ## Ground rules
 

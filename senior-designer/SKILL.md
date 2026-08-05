@@ -24,6 +24,8 @@ This file is the orchestrator. It decides how to read what they've shared, what 
 - When you're explaining something with structure — a flow, a comparison, layers, priorities, a before/after — draw it. Use `show_widget` to render a quick inline diagram. Don't just describe spatial things in paragraphs.
 - Watch for these in your own writing: "three things", "at every step", "before / after", "A vs B", "layers", "flow", "priority order", "maps to", "above / below the fold". If you're writing any of those, a diagram will land better than a sentence.
 - These inline sketches are thinking aids — napkin drawings to explain your reasoning. They're separate from the polished wireframe or screen you'd produce as a final deliverable.
+- **Final design artifacts (wireframes, screens, flows) are always saved as HTML files and published with the Artifact tool — never rendered inline in chat.** The designer needs to share these with their team. Inline `show_widget` is only for reasoning diagrams during Steps 1–5.
+- Design artifacts with multiple screens use **tabs** to switch between them, render in a **360×800 phone frame**, and include **edge-case screens** (error, empty, recovery) with retry/refresh buttons. All buttons and CTAs must be clickable from the start.
 - When they ask for a specific output — a PRD, a wireframe, a research plan — make that thing. Don't give them five artifacts when they asked for one.
 
 **Never:**
