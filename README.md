@@ -1,220 +1,313 @@
-# Design Skills for AI-Assisted Product Design
+# Design Skills
 
-Two skills that turn an LLM into a senior product designer and a rigorous UX evaluator. Built for Claude Code, adaptable to other AI coding/design tools.
+This repository contains two complementary skills for AI-assisted product design:
 
-## What's in the box
+- **Senior Designer** helps understand a product problem, develop a strong design direction, and create the right design output.
+- **UX Eval** reviews the designer’s reasoning and output, then explains what should be preserved, reconsidered, or clarified.
 
-### senior-designer
+You can use either skill independently or use them together as a design-and-review workflow.
 
-An orchestrator skill that reads messy design context — Figma frames, screenshots, prompts, research briefs, `.md` files — and works through it the way a senior product designer would: understand first, articulate the problem, then solve.
+## Which skill should I use?
 
-It doesn't jump to UI suggestions. It reframes the problem, considers multiple solution directions (Prevent / Assist / Recover), picks a stance, and only then routes to the right artifact.
+| Your situation | Use |
+| --- | --- |
+| You are beginning with a problem, brief, research, or rough idea | Senior Designer |
+| You need help with a user story, journey, flow, hierarchy, wireframe, or interface content | Senior Designer |
+| You already have a proposed solution or design output and want a structured review | UX Eval |
+| You want the designer to improve its work after a review | Senior Designer followed by UX Eval, then Senior Designer again |
 
-### ux-eval (Agent Evil)
+## How the two skills work together
 
-An 8-gate UX evaluation framework that scores design outputs on solution quality, subtraction, consistency, fundamentals, and philosophy. Three gates (Problem, Innovation, Gut Check) are flagged for human review — the agent knows what it can't judge.
+```text
+Problem, brief, research, or existing experience
+                    ↓
+             Senior Designer
+                    ↓
+       Design direction or artifact
+                    ↓
+                UX Eval
+                    ↓
+         Prioritised design feedback
+                    ↓
+       Senior Designer revision
+```
 
-Produces a scored report card with binary pass/fail checks, rated factors (1-5), and actionable fix directions for every failure.
-
----
-
-## What you can feed it (inputs)
-
-The senior-designer skill accepts any mix of:
-
-| Input type | Examples |
-|---|---|
-| **Text prompt** | A problem statement, design brief, or "how should we handle X?" question |
-| **Figma link** | Any Figma or FigJam frame (requires Figma MCP server connected) |
-| **Screenshot** | A photo or screenshot of an existing screen, flow, or whiteboard |
-| **Markdown file** | A `.md` with research findings, PRD, or product context |
-| **Research data** | User quotes, survey results, analytics numbers pasted into the prompt |
-| **Existing design output** | A previous solution you want critiqued or iterated on |
-
-You don't need all of these. A single sentence describing a UX problem is enough to start.
-
-### Example prompts
-
-**Problem-solving:**
-> Users search "urine" on our diagnostics app and get 7 near-identical tests. Traffic is doctor-initiated — users have a prescription but can't map the shorthand to the right SKU. Help them pick the right test.
-
-**Screen critique:**
-> Critique this PDP: header with test name, "82,900 booked recently", two info boxes, price with strikethrough, orange BOOK button, then an offers strip. What's working and what would you change first?
-
-**Artifact request:**
-> Write the copy for when a booked home-collection slot gets cancelled by the lab (not the user's fault). User has already paid. Don't panic them, tell them what's next, offer reschedule.
-
-**Evaluation:**
-> Run a UX eval on the solution above.
+The evaluator does not replace the designer. It gives the designer a second perspective and creates a focused revision conversation.
 
 ---
 
-## What you get back (outputs)
+## Senior Designer
 
-### From senior-designer
+Senior Designer behaves like a senior product designer working alongside you. It does not immediately jump to screens or features.
 
-1. **Board understanding** — what the context shows, who the user is, what flow or state is implied
-2. **Problem articulation** — user problem, business problem, friction diagnosis, success criteria
-3. **Reframe check** — the problem stated in three forms: PM framing, user symptom, and a design-shaped articulation that names the specific mismatch the design must resolve
-4. **UX solution** — diagnosis, recommended direction, copy suggestions, edge cases, tradeoffs
-5. **Stance check** — each intervention classified as Prevent / Assist / Recover, with the primary named and alternatives sketched
-6. **Routed artifact** (when requested) — one of:
+It first builds a shared understanding of:
 
-| Artifact | When to ask |
-|---|---|
-| Wireframe | "wireframe this", "sketch the layout" |
-| User flow | "map the flow", "show the journey" |
-| PRD | "write a PRD", "product spec" |
-| Research plan | "plan the research", "what should we test" |
-| Interview script | "write a usability script" |
-| UI review | "critique this screen", "UX audit" |
-| Content design | "write the copy", "microcopy for this state" |
-| Figma screen | "high-fidelity screen" |
-| Sticky notes | "synthesize these notes" |
+- The problem
+- The user and their situation
+- The product and existing journey
+- Business, policy, technical, operational, and accessibility constraints
+- What happens before, during, and after the experience
 
-### From ux-eval
+It asks questions only when the answers could materially change the design. When enough is known, it states its assumptions and continues.
 
-A scored report card across 8 gates:
+### Senior Designer workflow
 
-| Gate | What it checks | Scored? |
-|---|---|---|
-| 0. Artifact Stage | Static mockup / prototype / shipping code | Sets N/A rules |
-| 1. The Problem | Problem-solution alignment | Human review |
-| 2. The Solution | Framing, efficiency, error tolerance, learnability | Yes (/24) |
-| 3. Subtract | Word economy, auto-fill opportunities, unnecessary steps | Yes (/18) |
-| 4. Consistency | Terminology, interaction patterns, navigation | Yes (/28) |
-| 5. Fundamentals | Accessibility, visual hierarchy, responsiveness | Yes (/33) |
-| 6. Philosophy | Trust, credibility, privacy | Yes (/6) |
-| 7. Innovation | Multiple directions explored? Fresh but appropriate? | Human review |
-| 8. Gut Check | Does something feel off that the checklist missed? | Human review |
+```text
+Understand what was shared
+        ↓
+Confirm the current understanding
+        ↓
+Resolve material questions and assumptions
+        ↓
+Build an editable user story
+        ↓
+Frame the design problem
+        ↓
+Explore and choose a solution direction
+        ↓
+Map what the user understands at each stage
+        ↓
+Plan content, hierarchy, and surfaces
+        ↓
+Produce the requested design output
+```
 
-Overall score out of 109 (adjusted for N/A checks), with a letter grade (A-F) and actionable fix directions for every failure.
+### What Senior Designer can help with
+
+- Problem framing
+- Editable user stories
+- Solution exploration and product direction
+- User journeys and flows
+- Information architecture
+- Stage-by-stage user understanding
+- Wireframes and screen structure
+- Interface content and microcopy
+- Screen and interaction critique
+- Research planning and research scripts
+- High-fidelity design direction
+- Sticky-note and board synthesis
+- Reading product briefs and PRDs
+
+### How it works with PRDs
+
+Senior Designer treats a product brief or PRD as an input.
+
+It can:
+
+- Extract confirmed decisions and constraints
+- Translate product requirements into design implications
+- Identify missing or conflicting information
+- Clarify the user story and journey
+- Contribute UX, content, state, accessibility, and interaction requirements
+- Return questions to the appropriate owner
+
+It does not claim ownership of the authoritative product document, product strategy, business rules, delivery estimates, analytics ownership, or launch approval.
+
+Read more in [`senior-designer/README.md`](senior-designer/README.md).
+
+---
+
+## UX Eval
+
+UX Eval is a design-review partner. It evaluates both the proposed experience and the reasoning that produced it.
+
+It reviews:
+
+- Whether the designer understood enough about the problem, user, product, and constraints
+- Whether important questions were asked
+- Whether assumptions are visible and reasonable
+- Whether the user story is supported by the supplied context
+- Whether the solution addresses the underlying difficulty
+- Whether the product is taking an appropriate role
+- What the user understands and decides at every stage
+- Whether information appears at the right time and in the right hierarchy
+- Whether the artifact communicates the intended experience at its current maturity
+- Whether control, transparency, recovery, trust, and consequences are handled appropriately
+
+### UX Eval workflow
+
+```text
+Inspect the supplied material
+        ↓
+Identify the artifact and its maturity
+        ↓
+Review the designer’s understanding
+        ↓
+Evaluate the solution direction
+        ↓
+Map the user’s understanding
+        ↓
+Review the relevant artifact decisions
+        ↓
+Prioritise findings
+        ↓
+Discuss material questions
+        ↓
+Review the revision
+```
+
+UX Eval adapts to what it is reviewing. It does not judge a wireframe as though it were finished visual design or production code.
+
+### How findings are prioritised
+
+| Priority | Meaning |
+| --- | --- |
+| **Blocker** | The direction may fail, cause harm, break trust, or conflict with a critical constraint |
+| **Important** | The issue is likely to create confusion, hesitation, unnecessary effort, or a weaker outcome |
+| **Polish** | The central experience works, but craft or consistency can improve |
+| **Open question** | Missing context prevents a confident judgment |
+
+UX Eval does not produce a numerical score unless one is explicitly requested. A score is never treated as permission to ship.
+
+Read more in [`ux-eval/README.md`](ux-eval/README.md).
+
+---
+
+## What you can provide
+
+The skills can work with one or more of the following:
+
+- A short product problem
+- A design or research brief
+- User research and behavioural information
+- A product brief or PRD
+- Screenshots
+- Figma or FigJam context when the relevant integration is available
+- A journey, flow, wireframe, visual design, or prototype
+- An existing design-agent response
+- Product, policy, technical, content, or operational constraints
+
+You do not need to prepare every input before starting. The skills identify which missing information is important enough to ask about and which assumptions are safe to carry forward.
+
+## What you receive
+
+Depending on the request, Senior Designer may return:
+
+- A clear understanding of the problem and context
+- An editable user story
+- A design-shaped problem statement
+- Compared solution directions and a recommendation
+- A map of what the user should understand at each stage
+- A flow, journey, wireframe, screen direction, or interface content
+- Assumptions, trade-offs, dependencies, and open questions
+
+UX Eval may return:
+
+- An overall assessment
+- What is working and should be preserved
+- Missing questions or unsupported assumptions
+- A solution-quality assessment
+- A stage-by-stage user-understanding review
+- Artifact-appropriate findings
+- Prioritised changes
+- Questions that could change the evaluation
+- A focused revision direction
 
 ---
 
 ## Installation
 
-### Claude Code (recommended)
-
-**Option 1: Run the installer**
+### 1. Download the repository
 
 ```bash
 git clone https://github.com/Akshaymehta1mg/Design-skills.git
 cd Design-skills
+```
+
+### 2. Install both skills
+
+The installer defaults to the Claude Code skills directory:
+
+```bash
 python3 install.py
 ```
 
-This copies both skills into `~/.claude/skills/`. Start a new Claude Code session and describe a design problem — the skill activates automatically.
-
-**Option 2: Project-scoped install**
-
-If you want the skills available only inside a specific project:
+To install into another supported skills directory, provide the target explicitly:
 
 ```bash
-cd your-project
-python3 /path/to/Design-skills/install.py --target ./.claude/skills
+python3 install.py --target /absolute/path/to/skills
 ```
 
-**Other commands:**
+For a project-scoped installation:
 
 ```bash
-python3 install.py --verify          # check your install
-python3 install.py --dry-run         # preview without copying
-python3 install.py senior-designer   # install just one skill
-python3 install.py --force           # overwrite existing install
-python3 install.py --uninstall       # remove installed skills
+python3 install.py --target /absolute/path/to/project/.claude/skills
 ```
 
-**After installing:**
+### 3. Verify the installation
 
-1. Start a new Claude Code session (or restart your current one).
-2. No slash command needed. Just describe a design problem, paste a Figma link, or ask for a UX audit.
-3. The skill triggers automatically based on your prompt.
+```bash
+python3 install.py --verify
+```
+
+When a custom target was used:
+
+```bash
+python3 install.py --verify --target /absolute/path/to/skills
+```
+
+### Install only one skill
+
+```bash
+python3 install.py senior-designer
+python3 install.py ux-eval
+```
+
+### Update an existing installation
+
+```bash
+python3 install.py --force
+```
+
+The installer copies the selected skill folders and their references. Restart or begin a new AI session after installation so the environment can discover the updated skills.
 
 ---
 
-### OpenAI Codex / ChatGPT
+## Repository structure
 
-These skills were built for Claude Code's skill system, but the core logic is plain Markdown and works in any LLM that accepts system instructions.
-
-**For ChatGPT (Custom GPT):**
-
-1. Go to [chat.openai.com](https://chat.openai.com) > Explore GPTs > Create.
-2. In the **Instructions** field, paste the contents of `senior-designer/SKILL.md`.
-3. Under **Knowledge**, upload all files from `senior-designer/references/` as individual files.
-4. For the evaluator, create a second Custom GPT with `ux-eval/SKILL.md` as instructions.
-5. Name it, set a description, and save.
-
-**For ChatGPT (project-level custom instructions):**
-
-1. Open a ChatGPT project.
-2. Go to Project Settings > Instructions.
-3. Paste the contents of `senior-designer/SKILL.md`.
-4. In the same project, upload the reference files so the model can access them when needed.
-
-**For OpenAI Codex:**
-
-1. In your Codex workspace, open the system prompt / agent instructions.
-2. Paste `senior-designer/SKILL.md` as the base instructions.
-3. Append the contents of the most relevant reference files (at minimum: `references/articulate-problem.md` and `references/solution.md`).
-4. For the evaluator, use `ux-eval/SKILL.md` as the system prompt for a separate agent.
-
-**For Cursor / Windsurf / other AI code editors:**
-
-1. Copy the skill folder into your project's AI instructions directory (varies by editor):
-   - Cursor: `.cursor/rules/` or project-level instructions
-   - Windsurf: `.windsurfrules` or workspace settings
-2. Or paste `SKILL.md` contents into the editor's custom instructions / system prompt field.
-
-> **Note:** On non-Claude platforms, the `references/` routing (where the orchestrator calls specialist files on demand) won't work automatically. You'll need to either (a) paste the relevant reference file contents into the conversation when you need a specific artifact, or (b) include the key reference files in the system prompt / knowledge base upfront. The core reasoning — reframe check, stance check, problem articulation — works in any LLM.
-
----
-
-## File structure
-
-```
+```text
 Design-skills/
-  install.py                        # installer script
-  README.md                         # this file
-  senior-designer/
-    SKILL.md                        # orchestrator (284 lines)
-    references/
-      articulate-problem.md         # problem framing + reframe check
-      solution.md                   # UX solution + stance check
-      clarify-context.md            # confidence-based question logic
-      artifact-router.md            # routes to the right output type
-      wireframe.md                  # wireframe generation
-      user-flow.md                  # flow / journey mapping
-      prd.md                        # PRD from design context
-      research-plan.md              # research planning
-      research-script.md            # interview / usability scripts
-      ui-review.md                  # screen critique / UX audit
-      content-design.md             # microcopy and content
-      figma-screen.md               # high-fidelity screen specs
-      sticky-notes.md               # sticky-note synthesis
-      read-board.md                 # input interpretation
-    evals/                          # test prompts and scored runs (not installed)
-  ux-eval/
-    SKILL.md                        # the full 8-gate evaluation framework
+├── README.md
+├── install.py
+├── senior-designer/
+│   ├── README.md
+│   ├── SKILL.md
+│   └── references/
+│       ├── articulate-problem.md
+│       ├── content-design.md
+│       ├── figma-screen.md
+│       ├── read-board.md
+│       ├── read-prd.md
+│       ├── research-plan.md
+│       ├── research-script.md
+│       ├── solution.md
+│       ├── sticky-notes.md
+│       ├── ui-review.md
+│       ├── user-flow.md
+│       ├── user-story.md
+│       ├── user-understanding.md
+│       └── wireframe.md
+└── ux-eval/
+    ├── README.md
+    ├── SKILL.md
+    └── references/
+        ├── feedback-and-revision.md
+        ├── map-user-understanding.md
+        ├── review-the-artifact.md
+        ├── review-the-solution.md
+        └── understand-the-design.md
 ```
 
----
+## Responsibilities and limits
 
-## How the skills work together
+These skills can evaluate coherence, completeness, clarity, hierarchy, interaction logic, and alignment with the context they receive.
 
-The intended workflow is:
+They cannot confirm that:
 
-1. **You describe a design problem** to Claude Code (or another LLM with the skill installed).
-2. **senior-designer activates** — reads your input, articulates the problem (with a reframe check), considers multiple solution directions, picks a stance, and produces a solution + the artifact you need.
-3. **You ask for an eval** — ux-eval (Agent Evil) takes the output from step 2 and scores it across 8 gates, producing a report card with a grade, failures, and fix directions.
-4. **You iterate** — fix what the eval flagged, rerun, compare scores.
+- Assumptions about users are true
+- Real users will behave as expected
+- A design satisfies requirements that were not supplied
+- Legal, policy, accessibility, engineering, business, or operational approval has been granted
+- A design is ready to ship solely because it received a positive review
 
-The eval is optional but useful. It catches things humans skip under deadline pressure: terminology drift, missing error states, over-explained empty states, inconsistent interaction patterns.
-
----
-
-## Requirements
-
-- Python 3.7+ (for `install.py`)
-- Claude Code, ChatGPT, Codex, Cursor, or any LLM tool that accepts custom instructions
-- No external dependencies — the installer uses only Python standard library
+The skills make these limits visible so the user knows which decisions can continue and which require confirmation from another responsible person or team.
