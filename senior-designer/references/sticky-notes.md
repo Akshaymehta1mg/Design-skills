@@ -52,7 +52,7 @@ Organize stickies into these groups:
 - One idea per sticky. If it needs an "and," it's probably two stickies.
 - Keep titles short — they should be scannable from across the board.
 - Keep body text under 35 words when you can. If you need more, it might belong in a doc, not a sticky.
-- Use concrete language. "Users struggle with checkout" is better than "Friction exists in the conversion funnel."
+- Use concrete language that names the user, behavior, and point of difficulty.
 - Preserve important wording from the user or the research — don't paraphrase away the specificity.
 - Mark assumptions clearly so no one mistakes them for facts.
 

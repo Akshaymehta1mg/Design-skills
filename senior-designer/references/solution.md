@@ -1,116 +1,196 @@
 ---
 name: solution
-description: Use this to generate the UX recommendation after the problem has been articulated. This is where you actually solve it.
+description: Explore, compare, and recommend a product experience direction after the user story and design problem are understood.
 ---
 
 # Design the Solution
 
-## What this step is for
+## Purpose
 
-You've named the problem. Now solve it. Walk through this the way you'd present in a design crit — diagnosis first, then your recommendation, then why, then the details.
+Choose how the product should help the user, then shape the experience around that choice. Review solution quality before designing screens. A stronger solution changes the user's ability to make progress; it does not only rearrange interface elements.
 
-## How to think through it
+## 1. Set the decision frame
 
-1. **What's broken and why?**
-   - What specific thing isn't working?
-   - Why is it failing? (Not "it's confusing" — *why* is it confusing?)
-   - What does the user do (or not do) as a result?
+Carry forward:
 
-2. **Pick a direction:**
-   - Simplify it
-   - Reorder it
-   - Clarify it
-   - Add guidance
-   - Remove friction
-   - Change the hierarchy
-   - Split the flow
-   - Add feedback states
-   - Build trust
-   - Make recovery cheaper
+- the working user story;
+- the underlying design problem;
+- the desired user and product outcomes;
+- known capabilities and constraints;
+- assumptions that could change the direction.
 
-3. **Design the recommendation:**
-   - What screens or flows change?
-   - What copy changes?
-   - What interactions change?
-   - What states change (loading, error, empty, success)?
-   - Does the information architecture shift?
-   - Does the visual hierarchy need to change?
+State what the solution must achieve and what it must avoid. If the frame is not stable enough to compare directions, return to the missing context rather than inventing precision.
 
-   **Classify every surface.** For each screen or action in your solution, decide: is this a **page** or a **bottom sheet**?
+## 2. Decide the product role
 
-   - **Page** — a new destination. The user is leaving their current context to do a distinct task. Examples: checkout, profile, search results, order tracking, a detail page. These get their own tab in the artifact.
-   - **Bottom sheet** — a contextual action that happens *within* the current page. The user's primary task stays visible underneath. The action is temporary, supplementary, or confirmatory. Examples: share, filter, sort, date picker, quantity selector, quick confirmation ("Remove this item?"), payment method selection. These render as an overlay on their parent page, not a separate tab.
+Choose the role the product plays at each important moment:
 
-   The test is simple: **if the user would tap the back button to return to what they were doing, it's probably a bottom sheet.** If they'd use the nav bar or a deep link to get there, it's a page.
+- **Explain:** help the user understand information, status, or consequences.
+- **Guide:** structure the process while the user remains the decision-maker.
+- **Recommend:** propose a direction with reasons, limits, and alternatives.
+- **Act:** take action within explicit permission, scope, and controls.
 
-   When you list "what changes" in your recommendation, tag each surface — e.g., "Share options (bottom sheet on recommendation page)" or "Order summary (new page)." This classification carries directly into the artifact.
+The role may change across the journey, but each change must be intentional. Define:
 
-4. **Be honest about the tradeoffs:**
-   - How hard is this to build?
-   - Does it introduce a learning curve?
-   - What's the business impact?
-   - Does it affect accessibility?
-   - What are the edge cases?
-   - Does it break consistency with the rest of the product?
+- what the product knows;
+- what it infers;
+- what it proposes;
+- what it may do;
+- what requires user review or consent;
+- how the user can change, pause, undo, or recover;
+- how the product explains its reasoning and limitations.
 
-5. **What's the next step?**
-   - Test it with users
-   - Wireframe it
-   - Build a Figma screen
-   - Write a PRD
-   - Turn it into a research plan
-   - Add notes to the board
+Use less product autonomy when confidence, permission, reversibility, or consequence is unclear.
 
-## What the output looks like
+## 3. Choose the journey scope
+
+Decide whether the problem needs:
+
+- a one-time task;
+- a repeated workflow;
+- an ongoing product relationship;
+- or a connected set of these.
+
+Map the relevant time horizon:
+
+- **Before:** trigger, current behavior, expectation, and entry point.
+- **During:** understanding, decisions, actions, feedback, and recovery.
+- **Immediately after:** confirmation, status, next step, and retained control.
+- **Over time:** progress, reminders, changes, learning, or return behavior.
+
+Do not make an ongoing system when the need is truly temporary. Do not end at transaction completion when the user's outcome continues beyond it.
+
+## 4. Explore distinct directions
+
+Create a small set of directions that differ in behavior or product role, not only in layout. For each direction, define:
+
+- the central idea;
+- how the journey changes;
+- the product role;
+- the degree of user control;
+- what it requires from the product or operation;
+- the main advantage;
+- the main risk or trade-off;
+- what would make the direction inappropriate.
+
+Include prevention, support at the point of difficulty, and recovery as lenses when relevant. These lenses may be combined, but one should be the center of gravity.
+
+## 5. Compare and choose
+
+Compare directions against:
+
+- fit with the user story;
+- ability to resolve the underlying problem;
+- clarity and effort for the user;
+- product capability and constraint fit;
+- safety, trust, consent, and reversibility;
+- effect on the complete journey;
+- implementation and operational complexity;
+- durability as user needs or product conditions change.
+
+Recommend one direction. Explain why it leads, why the alternatives do not lead, and which useful parts of them should remain.
+
+## 6. Describe the experience architecture
+
+For the recommended direction, define:
+
+- entry points and triggers;
+- stages in the journey;
+- decisions and information required at each stage;
+- system behavior and feedback;
+- alternate, error, and recovery paths;
+- completion and post-completion experience;
+- ongoing states when relevant;
+- dependencies and unresolved questions.
+
+Route to `user-understanding.md` before finalizing the order of information and decisions.
+
+## 7. Choose interaction surfaces intentionally
+
+Classify each important interaction as a page, bottom sheet, inline disclosure, dialog, or system feedback.
+
+- **Page:** a distinct destination, sustained task, or deep information space.
+- **Bottom sheet:** a temporary contextual task that preserves the parent context and can be dismissed without losing progress.
+- **Inline disclosure:** supporting information or a lightweight choice that belongs directly within the current content.
+- **Dialog:** a focused interruption that requires immediate acknowledgement or a bounded decision.
+- **System feedback:** a status or result communicated without creating a new task surface.
+
+Decide using:
+
+- continuity with the current context;
+- depth and duration of the task;
+- amount of information required;
+- decision weight and consequence;
+- reversibility and interruption;
+- need to compare with the parent content;
+- navigation expectations;
+- accessibility and device constraints.
+
+Do not use a bottom sheet as a default for every secondary action. Do not create a new page merely because a state needs to be shown.
+
+## 8. Narrate the recommendation
+
+Explain the recommendation in design language:
+
+1. The user's need at the moment.
+2. The experience principle guiding the decision.
+3. What the product does.
+4. What the user understands and controls.
+5. Why the sequence and hierarchy work.
+6. What is deliberately deferred, removed, or left manual.
+7. The trade-off being accepted.
+
+## Output structure
 
 ```markdown
-## UX Recommendation
+## Recommended Direction
 
-**What's broken**
+**Design problem**
 ...
 
-**What I'd do**
+**Product role**
 ...
 
-**Why this works**
+**Journey scope**
 ...
 
-**What changes**
+**Directions considered**
+| Direction | User fit | Product fit | Control and trust | Complexity | Main trade-off |
+| --- | --- | --- | --- | --- | --- |
+| ... | ... | ... | ... | ... | ... |
+
+**Chosen direction and rationale**
+...
+
+**Experience architecture**
+- Before:
+- During:
+- Immediately after:
+- Over time:
+
+**Important surface decisions**
 - ...
 
-**Edge cases to handle**
+**Edge and recovery paths**
 - ...
 
-**Tradeoffs**
+**Trade-offs and dependencies**
 - ...
 
-**Next step**
+**Open questions**
+- ...
+
+**Recommended next level of detail**
 ...
 ```
 
-## Ground rules
+## Quality check
 
-- Be opinionated. Say what you'd actually do, not "there are several options." But explain your reasoning.
-- Tie every recommendation back to the problem you named. If it doesn't connect, it's decoration.
-- Include copy recommendations when the words are part of the friction. They usually are.
-- "Make it cleaner" is not a recommendation. Say *how*.
-
-## Stance check (do this before you're done)
-
-This is the step most designers skip, and it's where the best work happens. It's easy to commit to one approach without realising you had a choice. This check forces you to see the choice.
-
-Look at every intervention you proposed and classify it by where it sits in the user's journey:
-
-- **Prevent** — removes the friction entirely. The user never hits the problem. (e.g., let them upload a prescription so they never see the confusing search results.)
-- **Assist** — helps the user at the friction point. They still encounter it, but the interface supports them through it. (e.g., richer cards and a disambiguation strip on the search page.)
-- **Recover** — makes it cheap to fix a mistake. The user went wrong, but getting back on track is easy. (e.g., a "not the right test?" rescue link on the detail page.)
-
-Now answer three questions:
-
-1. **Which stance is the primary one in your solution?** Pick one. "All three equally" is a dodge — every solution has a centre of gravity.
-2. **If you led with a different stance, what would the solution look like?** Actually sketch it in a paragraph. Not "we could also prevent it" — describe what the Prevent-first version looks like, concretely. Then do the same for the third stance.
-3. **Given the constraints, is your primary stance the right one?** If yes, explain why the other two aren't the lead. If you're not sure, that's worth saying.
-
-If you can't answer question 2 with a genuinely different alternative, the divergent thinking didn't happen — you defaulted to one approach without exploring. Go back and try.
-
-This isn't a formality. When a solution feels obvious, it's usually because one stance took over your thinking without you noticing. Making the alternatives explicit is how you catch that.
+- The recommendation follows from the user story and design problem.
+- The product role and degree of user control are explicit.
+- The chosen direction was compared with meaningfully different alternatives.
+- The solution covers the relevant time horizon.
+- The experience uses product capabilities without hiding uncertainty or limitations.
+- Information, actions, and surfaces have a reason tied to the user's stage.
+- Risks and trade-offs are concrete.
+- The narration explains the reasoning instead of presenting screens as the solution.

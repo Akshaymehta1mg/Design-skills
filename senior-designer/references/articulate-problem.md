@@ -1,68 +1,102 @@
 ---
 name: articulate-problem
-description: Use this after reading what the designer shared and before proposing solutions. Turns messy context into a clear design problem.
+description: Turn the available problem, user, product, and constraint context into a clear design problem before proposing a solution.
 ---
 
 # Articulate the Problem
 
-## What this step is for
+## Purpose
 
-Stop and name what's actually going on. Before you propose anything, figure out who's struggling, why, and what "fixed" looks like. If you skip this, everything downstream is a guess.
+Name the difficulty the design must resolve. A useful problem articulation connects the user's situation and desired progress to a specific breakdown in the current experience. It does not merely repeat a request, metric, or visible symptom.
 
-## How to think through it
+## Check context readiness
 
-1. **Who's the user?** What kind of person, how experienced, what are they trying to do, what's their emotional state?
-2. **What's the job?** What does "progress" mean to them? What's blocking it?
-3. **What's the product trying to achieve?** Pick one primary goal — activation, conversion, retention, trust, comprehension, efficiency, or error recovery.
-4. **Where exactly does it break down?** Is the next step unclear, are there too many choices, is feedback missing, is the hierarchy wrong, does the copy say the wrong thing?
+Use the context already provided before asking for more. Review four areas:
 
-## Reframe check (do this every time)
+### Problem
 
-State the problem in three forms. This stops the entire solution from being built on a shallow problem statement.
+- What is happening today?
+- Where does progress begin to break down?
+- What behavior or outcome follows?
+- Which desired change matters most?
 
-**Form 1 — How the PM framed it.** The problem as stated in the brief or ticket. Take this as given.
+### User
 
-**Form 2 — How the user would say it.** The same problem in the user's words. Usually starts with "I can't..." or "I get confused when..."
+- Who encounters the difficulty?
+- What situation are they in when it happens?
+- What are they trying to accomplish?
+- What do they already understand?
+- What creates effort, hesitation, urgency, or risk?
 
-**Form 3 — The design-shaped version.** Restated to name the specific mismatch the design needs to fix: *"the interface is treating X like Y, when the user is actually doing Z."* Everything downstream — solution, stance, artifact — should answer Form 3, not Form 1.
+### Product
 
-**Self-check:** If Form 3 is just Form 1 with different words, you haven't reframed. Look for the gap between what the interface offers and what the user is trying to do.
+- Where does the experience live?
+- What happens before and after it?
+- What information and capabilities are available?
+- What product outcome is connected to the user outcome?
 
-**Example — diagnostics search:**
+### Constraints
 
-- Form 1: *"Users can't book the right diagnostic test on the SRP."*
-- Form 2: *"I see seven tests that all look the same and I don't know which one my doctor meant."*
-- Form 3: *"The SRP is built as a shopping surface, but doctor-initiated users are doing a translation task — matching prescription shorthand to an app SKU. The design must bridge that gap, not filter or rank."*
+- What boundaries shape the solution?
+- Which assumptions could change feasibility, trust, control, or safety?
 
-## What the output looks like
+Ask only for missing information that could change the problem definition or the class of solution. Otherwise, mark the gap and continue.
+
+## Separate symptom from difficulty
+
+Work through three layers:
+
+1. **Stated concern:** the issue as presented by the user, team, brief, or data.
+2. **User experience:** how the person experiences the issue in their context and what it prevents them from doing.
+3. **Design mismatch:** the gap between what the product currently expects or communicates and what the user needs to understand, decide, or accomplish.
+
+The design mismatch should be specific enough to guide solution choices without describing the solution itself.
+
+## Define success
+
+Describe success at three levels when relevant:
+
+- **User progress:** what becomes easier, clearer, safer, or more controllable.
+- **Experience behavior:** what the user can understand or do differently.
+- **Product outcome:** what changes for the product if the user succeeds.
+
+Do not substitute a business metric for the user's outcome. Connect them.
+
+## Output structure
 
 ```markdown
 ## Problem Articulation
 
-**User**
+**User and situation**
 ...
 
-**What they're trying to do**
+**Desired progress**
 ...
 
-**Where it breaks down**
+**Current breakdown**
 ...
 
-**What the product needs**
+**Underlying design mismatch**
 ...
 
-**The design challenge**
-How might we ...
-
-**What success looks like**
+**Product opportunity**
 ...
 
-**What we're assuming**
+**What success means**
 ...
+
+**Known constraints**
+- ...
+
+**Assumptions that could change the framing**
+- ...
 ```
 
-## Ground rules
+## Quality check
 
-- Name the problem before you touch the solution. Always.
-- Keep it human and specific. "Users experience friction" is not a problem statement.
-- Save "How might we..." for after the problem is clear.
+- The articulation names a person, situation, goal, and breakdown.
+- It explains why the breakdown occurs instead of calling it friction or confusion.
+- It distinguishes the user's need from the product's requested feature.
+- It leaves room for more than one solution direction.
+- Its assumptions are visible and correctable.
+- The success condition follows from the problem.

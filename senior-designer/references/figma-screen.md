@@ -23,13 +23,9 @@ If a design system MCP is connected (Dopamine 2, Storybook, etc.):
 4. Output a **Component Mapping Table** before writing any code:
 
 ```
-| UI Element         | Design System Component        | Variant/State        | Notes              |
-|--------------------|--------------------------------|----------------------|--------------------|
-| Tab bar            | HorizontalTabs/highlighted     | 40px, pill, 999px    | —                  |
-| Primary CTA        | Button/Primary/Large           | full-width, 48px     | —                  |
-| OTP input          | OTPInput/Default               | 4-digit, all states  | —                  |
-| Share panel        | BottomSheet/Default            | half-height, handle  | —                  |
-| Custom: risk badge | —                              | —                    | New component needed |
+| UI element | Design system component | Variant or state | Notes |
+| --- | --- | --- | --- |
+| ... | ... | ... | ... |
 ```
 
 If no design system MCP is connected, use standard mobile patterns and name them clearly.
@@ -52,7 +48,7 @@ This is where the UX thinking happens. The component mapping tells you *what to 
 1. Define the screen's purpose and its primary action.
 2. Build the screen using the components from your mapping table and the content from your content plan. The CSS for each component should match the design system's tokens (colors, spacing, radius, font sizes) — not your own values.
 3. Only create a custom element when the mapping table explicitly flagged it as "New component needed." If you find yourself writing CSS for a component that has a match in the table, stop and use the design system version instead.
-4. If an existing component is close but not perfect, **use it anyway** and note the gap. "Used Card/Default but it needs a new variant with an action strip" is better than silently building a custom card that doesn't match anything in the system.
+4. If an existing component is close but not perfect, use it and document the missing capability rather than silently replacing it.
 5. Include required states if they're relevant to the task.
 6. Add concise labels or annotations only if the board needs them for clarity.
 
@@ -78,8 +74,8 @@ A senior designer's screen looks like a real product, not a prototype someone ru
 
 **Icons:**
 - **Never use emojis.** Not as icons, not as illustrations, not as decorative elements. Never. Emojis are not design.
-- For small UI icons (nav, actions, status, form elements): use the **Hugeicons** library. Reference by name: "Hugeicons / chevron-right", "Hugeicons / search", etc.
-- For illustrations, onboarding graphics, empty states, and large decorative icons: use **thiings.co** (https://www.thiings.co/things). Reference by name: "thiings / clipboard", "thiings / check-circle", etc.
+- For small UI icons, use the **Hugeicons** library and reference icons by their library name.
+- For illustrations and large decorative icons, use **thiings.co** and reference assets by their library name.
 - When rendering via `show_widget`, use simple SVG paths for icons or reference them by label. Don't substitute Unicode symbols or emojis.
 
 **Components and design system (this is the most important section):**
@@ -90,9 +86,9 @@ A senior designer's screen looks like a real product, not a prototype someone ru
   3. Did I read the docs for each component I'm using?
   4. Did I check available page patterns to understand how this product composes screens?
   5. Am I using the system's exact component names, variants, tokens, and spacing?
-- If the system has a `HorizontalTabs` component, you use `HorizontalTabs` — you don't build a custom tab bar with flexbox and borders. If it has `Button/Primary/Medium`, you use that — you don't write a custom button style.
+- Use available system components instead of rebuilding standard components with custom styling.
 - If the system specifies spacing tokens, color tokens, or corner radius values — use them. Don't override with your own values.
-- If an existing component is close but not perfect, **use it and note what's missing** ("Used StatusBadge but needed a variant with an icon — flagging as a design system gap"). Don't silently create a custom replacement.
+- If an existing component is close but not perfect, use it, document the missing capability, and do not silently create a custom replacement.
 - Only create a genuinely new component when nothing in the system fits. When you do, document it in the spec as "New component — not in the current system" so the team knows it needs to be added.
 - If no design system is provided, use clean standard mobile patterns and document what you used so it can be translated into the actual system later.
 
@@ -103,9 +99,9 @@ A senior designer's screen looks like a real product, not a prototype someone ru
 - Cards should have 12–16px internal padding. Not 24px — that wastes mobile real estate.
 
 **Content:**
-- Use realistic content. Real names, real prices, real copy. Not "User Name" or "$XX.XX".
+- Use realistic, context-appropriate content rather than placeholder text.
 - Copy should sound like the product's voice. Read the existing UI before writing new copy.
-- If the screen has a CTA, the label should be a specific verb, not "Submit" or "Continue" unless that's genuinely the right word.
+- If the screen has a primary action, its label should describe the intended action or outcome.
 
 ## What the output looks like
 
@@ -170,8 +166,8 @@ Use `show_widget` only for quick thinking sketches during Steps 1–5 (flows, co
 
 **Pages vs. bottom sheets.** Not every screen is a tab. Classify each surface from the solution step:
 
-- **Pages** (new destination, distinct task) → each gets its own tab. Examples: home, search results, product detail, checkout, profile.
-- **Bottom sheets** (contextual action within a page) → render as a slide-up overlay *on their parent page's tab*. The parent page stays visible behind them, dimmed. Examples: share, filter, sort, date/time picker, quantity selector, confirmation dialogs, payment method selection.
+- **Pages** represent a new destination or distinct task and receive their own view in the artifact.
+- **Bottom sheets** represent contextual actions within a page and render as overlays on the parent view while keeping that context visible.
 
 The test: if the user triggered this action from a specific page and will return to that same page when done, it's a bottom sheet — not a new tab.
 
@@ -180,11 +176,11 @@ The test: if the user triggered this action from a specific page and will return
 - It has a drag handle (small horizontal bar, 40×4px, centered, rounded) at the top and an optional close/X button.
 - The parent page is visible behind it with a semi-transparent dark overlay (rgba(0,0,0,0.4)).
 - The trigger button on the parent page opens the sheet; tapping the overlay or the close button dismisses it.
-- A tab label like "Recommendation" shows the page; when the user taps the share button on that page, the share bottom sheet slides up. This is one tab with two states — not two tabs.
+- Treat a page and its bottom-sheet overlay as two states of the same view rather than separate destinations.
 
 **Edge cases and error states always included.** If the solution has error states, empty states, or recovery flows — add them as separate tabs. Every error or edge-case screen gets a visible retry/refresh button and clear recovery copy. Don't hide edge cases — they're the screens that ship broken when nobody designs them.
 
-**Interactivity.** Buttons and CTAs in the artifact should be clickable and advance to the next screen/tab. Back buttons should work. If a flow has branching (e.g., success vs. error), wire both paths. Bottom sheet triggers should open the sheet with a smooth slide-up animation. The artifact should feel like a prototype, not a slideshow.
+**Interactivity.** Buttons and actions in the artifact should advance to the intended state. Back behavior should work. Wire material branches and overlay triggers so the artifact communicates behavior rather than appearing as a slideshow.
 
 ## Visual quality when building HTML
 

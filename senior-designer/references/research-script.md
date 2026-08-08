@@ -51,7 +51,7 @@ You've decided what to research. Now write the actual script — the questions y
 ## Ground rules
 
 - Don't lead the witness. Ask open questions that don't hint at the "right" answer.
-- Ask about behavior before opinions. "What did you do last time?" comes before "What do you think about this?"
+- Ask about past behavior before asking for opinions.
 - Keep tasks realistic. Frame them the way the user would actually encounter them, not how the product team thinks about them.
 - Don't explain the UI before asking someone to use it. That defeats the purpose.
-- When testing flow clarity, "What would you do next?" is your best friend.
+- When reviewing flow clarity, ask participants to identify their next action without prompting them toward it.

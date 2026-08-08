@@ -1,60 +1,116 @@
 ---
 name: user-flow
-description: Turn a board or recommendation into a clear user flow, journey, task flow, or FigJam-ready flow structure.
+description: Turn an agreed user story and solution direction into a clear journey, task flow, state model, or sitemap.
 ---
 
 # User Flow
 
-## What this step is for
+## Purpose
 
-This is where you map out the path a user takes from start to finish. Where do they enter? What decisions do they face? Where can things go wrong? What does success look like? A good flow makes the experience legible — to the team building it and to anyone reviewing it later.
+Map how the user moves from their entry situation to meaningful completion. A flow should communicate intent, decisions, system responses, alternate paths, and recovery. It should not be only a chain of screen names.
 
-## How to think through it
+## Before mapping
 
-1. Where does the user enter this flow? What brought them here?
-2. What's their goal — what does "done" look like for them?
-3. Walk through each step in order.
-4. Flag the decision points — where do they choose between paths?
-5. Add the system states (loading, processing, waiting).
-6. Map out the failure and recovery paths — what happens when things go wrong, and how do they get back on track?
-7. End with the success state.
+Confirm:
 
-## What the output looks like
+- the working user story;
+- entry situation and trigger;
+- user goal and completion condition;
+- product role and journey scope;
+- assumptions and constraints that affect the path;
+- what the user should understand at important stages.
+
+If the user story is uncertain, use `user-story.md`. If the sequence depends on comprehension or decision support, use `user-understanding.md`.
+
+## Build the flow
+
+1. Define what happens before the visible flow and why the user enters.
+2. Mark the first product state the user encounters.
+3. Use atomic steps that pair user intent with system behavior.
+4. Mark decisions where paths meaningfully diverge.
+5. Show what information supports each consequential decision.
+6. Include processing, waiting, permission, and feedback states when they affect understanding or behavior.
+7. Add alternate, error, cancellation, and recovery paths that materially change the experience.
+8. Define immediate completion and the next expected state.
+9. Extend the flow into return or ongoing behavior when the user outcome continues.
+
+## Node language
+
+Name nodes with clear actions or states. Distinguish:
+
+- **User action**
+- **User decision**
+- **System response**
+- **System state**
+- **Information moment**
+- **Recovery path**
+- **Completion state**
+
+Keep each node atomic. If a node contains multiple user decisions or system outcomes, split it.
+
+## Flow checks
+
+- Does the flow begin in a believable user context?
+- Is every step necessary for the user's progress or a product constraint?
+- Is the system requesting information it already has?
+- Does each decision have enough information before it?
+- Can the user go back or change a choice without losing unrelated progress?
+- Are irreversible or high-consequence actions clear before commitment?
+- Does the system make waiting and processing visible?
+- Can the user recover from failure, interruption, or abandonment?
+- Does completion explain what changed, what happens next, and what control remains?
+- Does the flow cover the appropriate one-time, repeated, or ongoing journey?
+
+## Output structure
 
 ```markdown
 # User Flow
 
-## Entry Point
-...
-
-## Success State
-...
+## Journey Boundary
+- Before:
+- Entry:
+- Completion:
+- After:
+- Ongoing:
 
 ## Main Path
 1. ...
 2. ...
-3. ...
 
 ## Decision Points
-- If ..., then ...
+- ...
 
-## Edge Paths
+## Information Moments
+- ...
+
+## System States
+- ...
+
+## Alternate Paths
 - ...
 
 ## Recovery Paths
 - ...
 
-## FigJam Structure
+## Surface Classification
+- ...
+
+## Open Assumptions
+- ...
+
+## Diagram Structure
 - Start node:
-- Screen nodes:
+- Action nodes:
 - Decision nodes:
-- Error nodes:
-- Success node:
+- System nodes:
+- Recovery nodes:
+- Completion node:
 ```
 
 ## Ground rules
 
-- Use verbs for step names. "Select plan" not "Plan selection."
-- Keep each step atomic — one action per step.
-- Include the user's intent, not just what the system does. "User picks a delivery date" not "System displays calendar."
-- Show alternate paths only when they actually matter for the design. Not every edge case needs to be on the flow.
+- Include the user's intent, not only the system operation.
+- Show alternate paths only when they matter to the design decision.
+- Keep navigation structure separate from temporary interface states.
+- Do not hide uncertainty inside a neat diagram; label assumptions and unresolved branches.
+- The flow is complete when reviewers can explain what the user understands, decides, and experiences from entry through the relevant aftermath.
