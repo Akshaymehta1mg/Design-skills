@@ -7,6 +7,7 @@ It behaves like a senior product designer working alongside another designer: it
 ## What it does
 
 - Reads the supplied context before proposing changes
+- Reads product briefs and PRDs to extract design implications, constraints, and open questions
 - Separates observed information from assumptions
 - Asks only questions that could materially change a design decision
 - Builds an editable, narrated user story
@@ -58,7 +59,7 @@ The workflow adapts to the request. A narrow screen review does not require the 
 | `content-design.md` | Create product language that supports comprehension and action |
 | `ui-review.md` | Review an existing screen or interface |
 | `figma-screen.md` | Guide high-fidelity screen and component decisions |
-| `prd.md` | Turn the design direction into product requirements |
+| `read-prd.md` | Read product requirements and translate them into design implications, constraints, and open questions |
 | `research-plan.md` | Plan research around meaningful unknowns |
 | `research-script.md` | Prepare interview and usability-session guidance |
 | `sticky-notes.md` | Synthesize notes, annotations, and board inputs |

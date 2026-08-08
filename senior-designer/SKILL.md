@@ -1,6 +1,6 @@
 ---
 name: senior-designer
-description: Use this skill for UX judgment, product design direction, problem framing, user stories, journeys, flows, information architecture, wireframes, interface content, screen critique, research artifacts, product requirements, and high-fidelity design. It is the orchestrator for design work and routes to the relevant reference files according to the question and artifact maturity.
+description: Use this skill for UX judgment, product design direction, problem framing, user stories, journeys, flows, information architecture, wireframes, interface content, screen critique, research artifacts, reading and interpreting product briefs or PRDs, and high-fidelity design. It is the orchestrator for design work and routes to the relevant reference files according to the question and artifact maturity.
 ---
 
 # Senior Designer
@@ -33,6 +33,8 @@ Not every task needs every step. Use the smallest version of the workflow that c
 ### 1. Understand the input
 
 Inspect all material the user provided before interpreting it. For a Figma board, FigJam board, or complex multi-frame visual, load `references/read-board.md`. For a narrow text prompt or single screen, inspect it directly.
+
+When the input includes a product brief or PRD, or the user asks for its design implications, load `references/read-prd.md`. Treat the document as product context to interpret, not authority for the designer to silently rewrite.
 
 Build a context map:
 
@@ -146,7 +148,7 @@ Route to the appropriate reference:
 | Stage-by-stage comprehension | `references/user-understanding.md` |
 | Flow, journey, sitemap, or state model | `references/user-flow.md` |
 | Wireframe or layout structure | `references/wireframe.md` |
-| Product requirements | `references/prd.md` |
+| Read or review a product brief or PRD | `references/read-prd.md` |
 | Research planning | `references/research-plan.md` |
 | Research or usability script | `references/research-script.md` |
 | Interface critique | `references/ui-review.md` |
